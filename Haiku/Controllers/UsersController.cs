@@ -23,10 +23,18 @@ namespace Haiku.Controllers
             return "value";
         }
 
-        // POST api/<controller>
-        public string Post([FromBody]UserRegisterDto value)
+        // POST /users
+        [HttpPost]
+        public IHttpActionResult Post([FromBody]UserRegisterDto value)
         {
-            return "Success";
+            if (!ActionContext.ModelState.IsValid)
+            {
+                return BadRequest("Invalid format.");
+            }
+            else
+            {
+                return Created(new Uri(ActionContext.Request.RequestUri + "/1"), "Success");
+            }
         }
 
         // PUT api/<controller>/5
