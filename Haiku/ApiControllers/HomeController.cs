@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Haiku.Controllers
+namespace Haiku.ApiControllers
 {
     public class HomeController : Controller
     {
