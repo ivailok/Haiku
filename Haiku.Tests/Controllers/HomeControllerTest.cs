@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
+using Haiku.Web.ApiControllers;
+using Haiku.Web.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Haiku;
-using Haiku.Controllers;
+using Haiku.Web;
 
 namespace Haiku.Tests.Controllers
 {

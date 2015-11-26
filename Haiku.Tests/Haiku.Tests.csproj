@@ -93,9 +93,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Haiku\Haiku.csproj">
-      <Project>{A3574826-EA95-47C6-BDDF-33F9CCABBCB3}</Project>
-      <Name>Haiku</Name>
+    <ProjectReference Include="..\Haiku.Web\Haiku.Web.csproj">
+      <Project>{a3574826-ea95-47c6-bddf-33f9ccabbcb3}</Project>
+      <Name>Haiku.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
