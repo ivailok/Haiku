@@ -49,7 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Haiku.cs" />
+    <Compile Include="DbAsyncRepository.cs" />
+    <Compile Include="Entities\Haiku.cs" />
     <Compile Include="HaikuContext.cs" />
     <Compile Include="IAsyncRepository.cs" />
     <Compile Include="Migrations\201511301914075_Initial.cs" />
@@ -57,9 +58,9 @@
       <DependentUpon>201511301914075_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="TEntity.cs" />
+    <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Entities\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

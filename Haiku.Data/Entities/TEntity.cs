@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Haiku.Data
+namespace Haiku.Data.Entities
 {
     public abstract class TEntity<T>
     {

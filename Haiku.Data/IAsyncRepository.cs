@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Haiku.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,20 @@ namespace Haiku.Data
         IQueryable<TEntity> Query<TEntity>()
             where TEntity : TEntity<object>;
 
-        Task<IList<TEntity>> GetAllAsync<TEntity>()
+        Task<List<TEntity>> GetAllAsync<TEntity>()
             where TEntity : TEntity<object>;
 
         Task<TEntity> GetByIdAsync<TEntity, TId>(TId id)
             where TEntity : TEntity<object>
             where TId : IComparable, IComparable<TId>;
 
-        TEntity Add<TEntity>(TEntity entity)
+        Task<TEntity> AddAsync<TEntity>(TEntity entity)
             where TEntity : TEntity<object>;
 
-        void Update<TEntity>(TEntity entity)
+        Task UpdateAsync<TEntity>(TEntity entity)
             where TEntity : TEntity<object>;
 
-        void Delete<TEntity>(TEntity entity)
+        Task DeleteAsync<TEntity>(TEntity entity)
             where TEntity : TEntity<object>;
 
         Task DeleteAsync<TEntity, TId>(TId id)

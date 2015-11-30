@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Haiku.Data
+namespace Haiku.Data.Entities
 {
     [Table("Haikus")]
     public class HaikuEntity : TEntity<int>

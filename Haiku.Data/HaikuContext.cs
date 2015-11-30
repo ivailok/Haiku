@@ -1,4 +1,5 @@
 ﻿using Haiku.Data;
+using Haiku.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
