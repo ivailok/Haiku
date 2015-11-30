@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Haiku.Data
+{
+    public enum UserRole
+    {
+        Author,
+        Vip,
+        Admin
+    }
+
+    [Table("Users")]
+    public class User : TEntity<int>
+    {
+        [Required]
+        [StringLength(20, MinimumLength = 4)]
+        public string Nickname { get; set; }
+
+        [Required]
+        [StringLength(30, MinimumLength = 30)]
+        public string AccessToken { get; set; }
+
+        public UserRole Role { get; set; }
+        
+        public virtual ICollection<HaikuEntity> Haikus { get; set; }
+    }
+}
