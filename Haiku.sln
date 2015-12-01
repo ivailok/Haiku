@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haiku.Web", "Haiku.Web\Haik
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haiku.Data", "Haiku.Data\Haiku.Data.csproj", "{40495635-B008-4F21-BA45-1E81EEBA1364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haiku.Services", "Haiku.Services\Haiku.Services.csproj", "{56CC45E3-B80F-4E65-8960-E4C57EE72EF6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{40495635-B008-4F21-BA45-1E81EEBA1364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40495635-B008-4F21-BA45-1E81EEBA1364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40495635-B008-4F21-BA45-1E81EEBA1364}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56CC45E3-B80F-4E65-8960-E4C57EE72EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56CC45E3-B80F-4E65-8960-E4C57EE72EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56CC45E3-B80F-4E65-8960-E4C57EE72EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56CC45E3-B80F-4E65-8960-E4C57EE72EF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
