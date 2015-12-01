@@ -10,10 +10,6 @@ namespace Haiku.Web.ApiControllers
 {
     public class BaseController : ApiController
     {
-        public BaseController()
-        {
-        }
-
         protected CreatedResultWithoutLocation<T> CreatedWithoutLocation<T>(T data)
         {
             return new CreatedResultWithoutLocation<T>(this.Request, data);

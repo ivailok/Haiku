@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
@@ -28,8 +29,9 @@ namespace Haiku.Web.Filters
                 }
                 sb.Remove(sb.Length - 1, 1); // remove last space
 
-                actionContext.Response = actionContext.Request.CreateErrorResponse(
+                var response = actionContext.Request.CreateErrorResponse(
                     HttpStatusCode.BadRequest, sb.ToString());
+                throw new HttpResponseException(response);
             }
 
             return base.OnActionExecutingAsync(actionContext, cancellationToken);

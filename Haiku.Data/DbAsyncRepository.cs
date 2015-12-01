@@ -8,51 +8,43 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
-    public class DbAsyncRepository : IAsyncRepository
+    public class DbAsyncRepository<TEntity, TId> : IAsyncRepository<TEntity, TId>
+        where TEntity : TEntity<TId>
+        where TId : IComparable, IComparable<TId>
     {
-        private readonly HaikuContext context;
+        private HaikuContext context;
+        private DbSet<TEntity> entities;
 
         public DbAsyncRepository(HaikuContext context)
         {
             this.context = context;
-        }
-
-        private DbSet<TEntity> Entities<TEntity>()
-            where TEntity : TEntity<object>
-        {
-            return this.context.Set<TEntity>();
+            this.entities = context.Set<TEntity>();
         }
         
-        public IQueryable<TEntity> Query<TEntity>()
-            where TEntity : TEntity<object>
+        public IQueryable<TEntity> Query()
         {
-            return this.Entities<TEntity>().AsQueryable();
+            return this.entities.AsQueryable();
         }
         
-        public Task<List<TEntity>> GetAllAsync<TEntity>()
-            where TEntity : TEntity<object>
+        public Task<List<TEntity>> GetAllAsync()
         {
-            return this.Entities<TEntity>().ToListAsync();
+            return this.entities.ToListAsync();
         }
 
-        public Task<TEntity> GetByIdAsync<TEntity, TId>(TId id)
-            where TEntity : TEntity<object>
-            where TId : IComparable, IComparable<TId>
+        public Task<TEntity> GetByIdAsync(TId id)
         {
-            return this.Entities<TEntity>().FindAsync(id);
+            return this.entities.FindAsync(id);
         }
 
-        public Task<TEntity> AddAsync<TEntity>(TEntity entity) 
-            where TEntity : TEntity<object>
+        public Task<TEntity> AddAsync(TEntity entity)
         {
             return Task.Run(() =>
             {
-                return this.Entities<TEntity>().Add(entity);
+                return this.entities.Add(entity);
             });
         }
 
-        public Task UpdateAsync<TEntity>(TEntity entity)
-            where TEntity : TEntity<object>
+        public Task UpdateAsync(TEntity entity)
         {
             return Task.Run(() =>
             {
@@ -60,8 +52,7 @@ namespace Haiku.Data
             });
         }
 
-        public Task DeleteAsync<TEntity>(TEntity entity) 
-            where TEntity : TEntity<object>
+        public Task DeleteAsync(TEntity entity)
         {
             return Task.Run(() =>
             {
@@ -69,11 +60,9 @@ namespace Haiku.Data
             });
         }
 
-        public Task DeleteAsync<TEntity, TId>(TId id)
-            where TEntity : TEntity<object>
-            where TId: IComparable, IComparable<TId>
+        public Task DeleteAsync(TId id)
         {
-            TEntity entity = this.GetByIdAsync<TEntity, TId>(id).Result;
+            TEntity entity = this.GetByIdAsync(id).Result;
             return this.DeleteAsync(entity);
         }
 
