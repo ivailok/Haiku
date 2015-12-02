@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40495635-B008-4F21-BA45-1E81EEBA1364}</ProjectGuid>
+    <ProjectGuid>{C26E3165-87A4-4DA1-8479-EC4B4A2184A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Haiku.Data</RootNamespace>
-    <AssemblyName>Haiku.Data</AssemblyName>
+    <RootNamespace>Haiku.DTO</RootNamespace>
+    <AssemblyName>Haiku.DTO</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,16 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,28 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbAsyncRepository.cs" />
-    <Compile Include="Entities\Haiku.cs" />
-    <Compile Include="HaikuContext.cs" />
-    <Compile Include="IAsyncRepository.cs" />
-    <Compile Include="Migrations\201511301914075_Initial.cs" />
-    <Compile Include="Migrations\201511301914075_Initial.Designer.cs">
-      <DependentUpon>201511301914075_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="UnitOfWork.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511301914075_Initial.resx">
-      <DependentUpon>201511301914075_Initial.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Request\HaikuModifyDto.cs" />
+    <Compile Include="Request\HaikuPublishDto.cs" />
+    <Compile Include="Request\HaikuRateDto.cs" />
+    <Compile Include="Request\HaikusGetQueryParams.cs" />
+    <Compile Include="Request\OrderType.cs" />
+    <Compile Include="Request\PagingQueryParams.cs" />
+    <Compile Include="Request\ReportsGetQueryParams.cs" />
+    <Compile Include="Request\AuthorRegisterDto.cs" />
+    <Compile Include="Request\UsersGetQueryParams.cs" />
+    <Compile Include="Response\CreatedHaikuDto.cs" />
+    <Compile Include="Response\HaikuGetDto.cs" />
+    <Compile Include="Response\ReportGetDto.cs" />
+    <Compile Include="Response\UserGetDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,24 +7,21 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
-    public interface IAsyncRepository<TEntity, TId>
-        where TEntity : TEntity<TId>
-        where TId: IComparable, IComparable<TId>    
+    public interface IAsyncRepository<TEntity>
+        where TEntity : class
     {
         IQueryable<TEntity> Query();
 
         Task<List<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIdAsync(TId id);
+        Task<TEntity> GetByIdAsync(object id);
 
-        Task<TEntity> AddAsync(TEntity entity);
+        TEntity Add(TEntity entity);
 
-        Task UpdateAsync(TEntity entity);
+        void Update(TEntity entity);
 
-        Task DeleteAsync(TEntity entity);
+        void Delete(TEntity entity);
 
-        Task DeleteAsync(TId id);
-
-        Task<int> SaveChangesAsync();
+        Task DeleteAsync(object id);
     }
 }

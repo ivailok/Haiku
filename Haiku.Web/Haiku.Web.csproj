@@ -181,19 +181,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dtos\Request\HaikusGetQueryParams.cs" />
-    <Compile Include="Models\Dtos\Request\HaikuModifyDto.cs" />
-    <Compile Include="Models\Dtos\Request\HaikuPublishDto.cs" />
-    <Compile Include="Models\Dtos\Request\HaikuRateDto.cs" />
-    <Compile Include="Models\Dtos\Request\OrderType.cs" />
-    <Compile Include="Models\Dtos\Request\PagingQueryParams.cs" />
-    <Compile Include="Models\Dtos\Request\UsersGetQueryParams.cs" />
-    <Compile Include="Models\Dtos\Request\UserRegisterDto.cs" />
-    <Compile Include="Models\Dtos\Response\CreatedHaikuDto.cs" />
-    <Compile Include="Models\Dtos\Response\HaikuGetDto.cs" />
-    <Compile Include="Models\Dtos\Response\ReportGetDto.cs" />
-    <Compile Include="Models\Dtos\Request\ReportsGetQueryParams.cs" />
-    <Compile Include="Models\Dtos\Response\UserGetDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,15 +253,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Haiku.Data\Haiku.Data.csproj">
-      <Project>{40495635-b008-4f21-ba45-1e81eeba1364}</Project>
-      <Name>Haiku.Data</Name>
+    <ProjectReference Include="..\Haiku.DTO\Haiku.DTO.csproj">
+      <Project>{c26e3165-87a4-4da1-8479-ec4b4a2184a7}</Project>
+      <Name>Haiku.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Haiku.Services\Haiku.Services.csproj">
+      <Project>{72d14832-ca17-4595-9938-5d819ce13ea2}</Project>
+      <Name>Haiku.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

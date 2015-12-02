@@ -6,8 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Haiku.Web.Filters;
-using Haiku.Web.Models.Dtos.Request;
-using Haiku.Web.Models.Dtos.Response;
+using Haiku.DTO.Request;
+using Haiku.DTO.Response;
 
 namespace Haiku.Web.ApiControllers
 {

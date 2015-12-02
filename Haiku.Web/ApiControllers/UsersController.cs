@@ -8,18 +8,28 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using System.Web.Routing;
 using Haiku.Web.Filters;
-using Haiku.Web.Models.Dtos.Request;
-using Haiku.Web.Models.Dtos.Response;
+using Haiku.DTO.Request;
+using Haiku.DTO.Response;
+using Haiku.Services;
+using System.Threading;
 
 namespace Haiku.Web.ApiControllers
 {
     [RoutePrefix("api/users")]
     public class UsersController : BaseController
     {
+        private readonly IUsersService usersService;
+
+        public UsersController()
+        {
+            this.usersService = new UsersService();
+        }
+
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> CreateUser([FromBody]UserRegisterDto dto)
+        public async Task<IHttpActionResult> CreateUser([FromBody]AuthorRegisterDto dto)
         {
+            await this.usersService.RegisterAuthorAsync(dto).ConfigureAwait(false);
             return CreatedWithoutLocationAndContent();
         }
 

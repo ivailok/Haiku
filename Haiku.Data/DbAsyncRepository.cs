@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
-    public class DbAsyncRepository<TEntity, TId> : IAsyncRepository<TEntity, TId>
-        where TEntity : TEntity<TId>
-        where TId : IComparable, IComparable<TId>
+    public class DbAsyncRepository<TEntity> : IAsyncRepository<TEntity>
+        where TEntity : class
     {
         private HaikuContext context;
         private DbSet<TEntity> entities;
@@ -31,44 +30,30 @@ namespace Haiku.Data
             return this.entities.ToListAsync();
         }
 
-        public Task<TEntity> GetByIdAsync(TId id)
+        public Task<TEntity> GetByIdAsync(object id)
         {
             return this.entities.FindAsync(id);
         }
 
-        public Task<TEntity> AddAsync(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
-            return Task.Run(() =>
-            {
-                return this.entities.Add(entity);
-            });
+            return this.entities.Add(entity);
         }
 
-        public Task UpdateAsync(TEntity entity)
+        public void Update(TEntity entity)
         {
-            return Task.Run(() =>
-            {
-                this.context.Entry(entity).State = EntityState.Modified;
-            });
+            this.context.Entry(entity).State = EntityState.Modified;
         }
 
-        public Task DeleteAsync(TEntity entity)
+        public void Delete(TEntity entity)
         {
-            return Task.Run(() =>
-            {
-                this.context.Entry(entity).State = EntityState.Deleted;
-            });
+            this.context.Entry(entity).State = EntityState.Deleted;
         }
 
-        public Task DeleteAsync(TId id)
+        public Task DeleteAsync(object id)
         {
-            TEntity entity = this.GetByIdAsync(id).Result;
+            TEntity entity = this.entities.FindAsync(id).Result;
             return this.DeleteAsync(entity);
-        }
-
-        public Task<int> SaveChangesAsync()
-        {
-            return this.context.SaveChangesAsync();
         }
     }
 }
