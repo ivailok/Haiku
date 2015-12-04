@@ -50,12 +50,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbAsyncRepository.cs" />
-    <Compile Include="Entities\Haiku.cs" />
+    <Compile Include="Entities\HaikuEntity.cs" />
     <Compile Include="HaikuContext.cs" />
     <Compile Include="IAsyncRepository.cs" />
     <Compile Include="Migrations\201511301914075_Initial.cs" />
     <Compile Include="Migrations\201511301914075_Initial.Designer.cs">
       <DependentUpon>201511301914075_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512030716011_Added_Haiku_Published_Date.cs" />
+    <Compile Include="Migrations\201512030716011_Added_Haiku_Published_Date.Designer.cs">
+      <DependentUpon>201512030716011_Added_Haiku_Published_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512030718052_IX_User_Nickname.cs" />
+    <Compile Include="Migrations\201512030718052_IX_User_Nickname.Designer.cs">
+      <DependentUpon>201512030718052_IX_User_Nickname.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
@@ -70,6 +78,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511301914075_Initial.resx">
       <DependentUpon>201511301914075_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512030716011_Added_Haiku_Published_Date.resx">
+      <DependentUpon>201512030716011_Added_Haiku_Published_Date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512030718052_IX_User_Nickname.resx">
+      <DependentUpon>201512030718052_IX_User_Nickname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,15 +43,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\HaikuModifyDto.cs" />
-    <Compile Include="Request\HaikuPublishDto.cs" />
+    <Compile Include="Request\HaikuPublishingDto.cs" />
     <Compile Include="Request\HaikuRateDto.cs" />
     <Compile Include="Request\HaikusGetQueryParams.cs" />
     <Compile Include="Request\OrderType.cs" />
     <Compile Include="Request\PagingQueryParams.cs" />
     <Compile Include="Request\ReportsGetQueryParams.cs" />
-    <Compile Include="Request\AuthorRegisterDto.cs" />
+    <Compile Include="Request\AuthorRegisteringDto.cs" />
     <Compile Include="Request\UsersGetQueryParams.cs" />
-    <Compile Include="Response\CreatedHaikuDto.cs" />
+    <Compile Include="Response\HaikuPublishedDto.cs" />
     <Compile Include="Response\HaikuGetDto.cs" />
     <Compile Include="Response\ReportGetDto.cs" />
     <Compile Include="Response\UserGetDto.cs" />

@@ -50,10 +50,10 @@ namespace Haiku.Data
             this.context.Entry(entity).State = EntityState.Deleted;
         }
 
-        public Task DeleteAsync(object id)
+        public async Task DeleteAsync(object id)
         {
-            TEntity entity = this.entities.FindAsync(id).Result;
-            return this.DeleteAsync(entity);
+            TEntity entity = await this.entities.FindAsync(id);
+            this.Delete(entity);
         }
     }
 }

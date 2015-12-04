@@ -27,39 +27,37 @@ namespace Haiku.Web.ApiControllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IHttpActionResult> CreateUser([FromBody]AuthorRegisterDto dto)
+        public async Task<IHttpActionResult> RegisterAuthor([FromBody]AuthorRegisteringDto dto)
         {
             await this.usersService.RegisterAuthorAsync(dto).ConfigureAwait(false);
             return CreatedWithoutLocationAndContent();
         }
 
         [HttpPost]
-        [Route("{username}/haikus")]
+        [Route("{nickname}/haikus")]
         [Author]
         public async Task<IHttpActionResult> PublishHaiku(
-            string username, [FromBody]HaikuPublishDto dto)
+            string nickname, [FromBody]HaikuPublishingDto dto)
         {
-            return CreatedWithoutLocation(new CreatedHaikuDto()
-            {
-                Id = 10,
-                DatePublished = DateTime.Now
-            });
+            var published = await this.usersService.PublishHaikuAsync(nickname, dto).ConfigureAwait(false);
+            return CreatedWithoutLocation(published);
         }
 
         [HttpDelete]
-        [Route("{username}/haikus/{haikuId}")]
+        [Route("{nickname}/haikus/{haikuId}")]
         [Author]
         public async Task<IHttpActionResult> DeleteHaiku(
-            string username, int haikuId)
+            string nickname, int haikuId)
         {
+            await this.usersService.DeleteHaikuAsync(nickname, haikuId).ConfigureAwait(false);
             return NoContent();
         }
 
         [HttpPut]
-        [Route("{username}/haikus/{haikuId}")]
+        [Route("{nickname}/haikus/{haikuId}")]
         [Author]
         public async Task<IHttpActionResult> ModifyHaiku(
-            string username, int haikuId, [FromBody]HaikuModifyDto dto)
+            string nickname, int haikuId, [FromBody]HaikuModifyDto dto)
         {
             return NoContent();
         }
