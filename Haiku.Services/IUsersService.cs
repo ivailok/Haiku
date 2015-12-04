@@ -10,6 +10,8 @@ namespace Haiku.Services
 {
     public interface IUsersService
     {
+        bool ConfirmAuthorIdentity(string nickname, string publishCode);
+
         Task RegisterAuthorAsync(AuthorRegisteringDto dto);
         
         Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto);

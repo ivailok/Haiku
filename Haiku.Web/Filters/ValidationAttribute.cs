@@ -14,7 +14,7 @@ using System.Web.Http.Filters;
 namespace Haiku.Web.Filters
 {
     public class ValidationAttribute : ActionFilterAttribute
-    {
+    { 
         public override Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
         {
             if (!actionContext.ModelState.IsValid)

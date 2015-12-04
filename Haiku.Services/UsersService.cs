@@ -33,6 +33,19 @@ namespace Haiku.Services
             return user;
         }
 
+        public bool ConfirmAuthorIdentity(string nickname, string publishCode)
+        {
+            var user = FindUserByNickname(nickname);
+            if (user.AccessToken == publishCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Task RegisterAuthorAsync(AuthorRegisteringDto dto)
         {
             User user = Mapper.MapAuthorRegisterDtoToUser(dto);
