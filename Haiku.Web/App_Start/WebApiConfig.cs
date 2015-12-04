@@ -22,7 +22,11 @@ namespace Haiku.Web
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+#if DEBUG
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+#else
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Never;
+#endif
 
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
