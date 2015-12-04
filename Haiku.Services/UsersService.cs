@@ -13,11 +13,11 @@ namespace Haiku.Services
 {
     public class UsersService : IUsersService
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
-        public UsersService()
+        public UsersService(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         private User FindUserByNickname(string nickname)

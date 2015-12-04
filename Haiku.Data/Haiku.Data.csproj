@@ -53,6 +53,8 @@
     <Compile Include="Entities\HaikuEntity.cs" />
     <Compile Include="HaikuContext.cs" />
     <Compile Include="IAsyncRepository.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Migrations\201511301914075_Initial.cs" />
     <Compile Include="Migrations\201511301914075_Initial.Designer.cs">
       <DependentUpon>201511301914075_Initial.cs</DependentUpon>

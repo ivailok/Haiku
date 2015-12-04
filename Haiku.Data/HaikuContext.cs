@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
-    public class HaikuContext : DbContext
+    public class HaikuContext : DbContext, IDbContext
     {
         public HaikuContext()
             : base("name=HaikuDBConnectionString")

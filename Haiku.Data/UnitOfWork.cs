@@ -7,40 +7,31 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
-        private HaikuContext context;
+        private IDbContext context;
         private IAsyncRepository<User> usersRepository;
         private IAsyncRepository<HaikuEntity> haikusRepository;
         private bool disposedValue = false;
 
-        public UnitOfWork()
+        public UnitOfWork(
+            IDbContext context,
+            IAsyncRepository<User> usersRepository, 
+            IAsyncRepository<HaikuEntity> haikusRepository)
         {
-            this.context = new HaikuContext();
+            this.context = context;
+            this.usersRepository = usersRepository;
+            this.haikusRepository = haikusRepository;
         }
 
         public IAsyncRepository<User> UsersRepository
         {
-            get
-            {
-                if (this.usersRepository == null)
-                {
-                    this.usersRepository = new DbAsyncRepository<User>(this.context);
-                }
-                return this.usersRepository;
-            }
+            get { return this.usersRepository; }
         }
 
         public IAsyncRepository<HaikuEntity> HaikusRepository
         {
-            get
-            {
-                if (this.haikusRepository == null)
-                {
-                    this.haikusRepository = new DbAsyncRepository<HaikuEntity>(this.context);
-                }
-                return this.haikusRepository;
-            }
+            get { return this.haikusRepository; }
         }
 
         public Task SaveAsync()

@@ -17,23 +17,20 @@ namespace Haiku.Web.Filters
     {
         private const string PublishTokenHeader = "PublishCode";
 
-        private readonly IUsersService usersService;
-        
-        public AuthorAttribute()
-        {
-            this.usersService = new UsersService();
-        }
-
         public override Task OnActionExecutingAsync(
             HttpActionContext actionContext, CancellationToken cancellationToken)
         {
+            // per request lifetime
+            var requestScope = actionContext.Request.GetDependencyScope();
+            var usersService = requestScope.GetService(typeof(IUsersService)) as IUsersService;
+
             bool author = false;
 
             string token;
             if (HeaderExtractor.ExtractHeader(actionContext.Request.Headers, PublishTokenHeader, out token))
             {
                 if (actionContext.ActionArguments.ContainsKey("nickname") &&
-                    this.usersService.ConfirmAuthorIdentity(actionContext.ActionArguments["nickname"].ToString(), token))
+                    usersService.ConfirmAuthorIdentity(actionContext.ActionArguments["nickname"].ToString(), token))
                 {
                     author = true;
                 }

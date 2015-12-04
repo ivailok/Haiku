@@ -12,10 +12,5 @@ namespace Haiku.Services
     public class HaikusService : IHaikusService
     {
         private readonly UnitOfWork unitOfWork;
-
-        public HaikusService()
-        {
-            this.unitOfWork = new UnitOfWork();
-        }
     }
 }
