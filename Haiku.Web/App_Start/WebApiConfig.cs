@@ -38,8 +38,7 @@ namespace Haiku.Web
         private static void RegisterData(ContainerBuilder builder)
         {
             builder.RegisterType<HaikuContext>().AsSelf().As<IDbContext>().InstancePerRequest();
-            builder.RegisterType<DbAsyncRepository<User>>().As<IAsyncRepository<User>>().InstancePerRequest();
-            builder.RegisterType<DbAsyncRepository<HaikuEntity>>().As<IAsyncRepository<HaikuEntity>>().InstancePerRequest();
+            builder.RegisterGeneric(typeof(DbAsyncRepository<>)).As(typeof(IAsyncRepository<>)).InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
         }
 
