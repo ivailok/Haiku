@@ -19,10 +19,12 @@ namespace Haiku.Web.ApiControllers
     public class UsersController : BaseController
     {
         private readonly IUsersService usersService;
+        private readonly IHaikusService haikusService;
 
-        public UsersController(IUsersService usersService)
+        public UsersController(IUsersService usersService, IHaikusService haikusService)
         {
             this.usersService = usersService;
+            this.haikusService = haikusService;
         }
 
         [HttpPost]
@@ -59,6 +61,7 @@ namespace Haiku.Web.ApiControllers
         public async Task<IHttpActionResult> ModifyHaiku(
             string nickname, int haikuId, [FromBody]HaikuModifyDto dto)
         {
+            await this.haikusService.ModifyHaikuAsync(haikuId, dto);
             return NoContent();
         }
 

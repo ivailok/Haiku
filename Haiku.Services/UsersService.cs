@@ -46,11 +46,11 @@ namespace Haiku.Services
             }
         }
 
-        public Task RegisterAuthorAsync(AuthorRegisteringDto dto)
+        public async Task RegisterAuthorAsync(AuthorRegisteringDto dto)
         {
             User user = Mapper.MapAuthorRegisterDtoToUser(dto);
             this.unitOfWork.UsersRepository.Add(user);
-            return this.unitOfWork.SaveAsync();
+            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
         }
 
         public async Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto)
@@ -72,7 +72,7 @@ namespace Haiku.Services
         {
             var user = FindUserByNickname(nickname);
             await this.unitOfWork.HaikusRepository.DeleteAsync(haikuId).ConfigureAwait(false);
-            await this.unitOfWork.SaveAsync();
+            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
         }
     }
 }
