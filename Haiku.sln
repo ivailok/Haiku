@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haiku.Services", "Haiku.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haiku.DTO", "Haiku.DTO\Haiku.DTO.csproj", "{C26E3165-87A4-4DA1-8479-EC4B4A2184A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postman Collections", "Postman Collections", "{6F709B53-C569-487F-8359-C064FDFCD0CF}"
+	ProjectSection(SolutionItems) = preProject
+		Haiku.json.postman_collection = Haiku.json.postman_collection
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
