@@ -7,17 +7,26 @@ using System.Web.Http;
 using Haiku.Web.Filters;
 using Haiku.DTO.Request;
 using Haiku.DTO.Response;
+using Haiku.Services;
 
 namespace Haiku.Web.ApiControllers
 {
     [RoutePrefix("api/haikus")]
     public class HaikusController : BaseController
     {
+        private readonly IHaikusService haikusService;
+
+        public HaikusController(IHaikusService haikusService)
+        {
+            this.haikusService = haikusService;
+        }
+
         [HttpGet]
         [Route("")]
         public async Task<IHttpActionResult> GetAll([FromUri]HaikusGetQueryParams queryParams)
         {
-            return Ok(new HaikuGetDto[] { new HaikuGetDto() { Id = 3, Rating = 3.3, Text = "Haikus are nice."} });
+            var data = await this.haikusService.GetHaikusAsync(queryParams).ConfigureAwait(false);
+            return Ok(data);
         }
 
         [HttpPost]

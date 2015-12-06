@@ -18,6 +18,8 @@ namespace Haiku.Data.Entities
         public DateTime DatePublished { get; set; }
 
         public int UserId { get; set; }
+
+        public double? Rating { get; set; }
         
         public virtual User User { get; set; }
     }

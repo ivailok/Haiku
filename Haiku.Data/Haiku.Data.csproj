@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201512030718052_IX_User_Nickname.Designer.cs">
       <DependentUpon>201512030718052_IX_User_Nickname.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512061549087_AddedRatingToHaikuEntity.cs" />
+    <Compile Include="Migrations\201512061549087_AddedRatingToHaikuEntity.Designer.cs">
+      <DependentUpon>201512061549087_AddedRatingToHaikuEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512030718052_IX_User_Nickname.resx">
       <DependentUpon>201512030718052_IX_User_Nickname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512061549087_AddedRatingToHaikuEntity.resx">
+      <DependentUpon>201512061549087_AddedRatingToHaikuEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

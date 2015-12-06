@@ -37,5 +37,15 @@ namespace Haiku.Services
                 DatePublished = haiku.DatePublished
             };
         }
+
+        public static HaikuGetDto MapHaikuEntityToHaikuGetDto(HaikuEntity haiku)
+        {
+            return new HaikuGetDto()
+            {
+                Id = haiku.Id,
+                Text = haiku.Text,
+                Rating = haiku.Rating
+            };
+        }
     }
 }

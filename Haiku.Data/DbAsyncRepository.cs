@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,20 @@ namespace Haiku.Data
         public Task<List<TEntity>> GetAllAsync()
         {
             return this.entities.ToListAsync();
+        }
+        
+        public async Task<IList<TEntity>> GetAllAsync<T>(Expression<Func<TEntity, T>> sortBy, bool ascending, int skip, int take)
+        {
+            IOrderedQueryable<TEntity> sortQuery;
+            if (ascending)
+            {
+                sortQuery = this.entities.OrderBy(sortBy);
+            }
+            else
+            {
+                sortQuery = this.entities.OrderByDescending(sortBy);
+            }
+            return await sortQuery.Skip(skip).Take(take).ToListAsync().ConfigureAwait(false);
         }
 
         public Task<TEntity> GetByIdAsync(object id)

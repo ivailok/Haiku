@@ -7,8 +7,8 @@ namespace Haiku.DTO.Request
 {
     public enum HaikusSortBy
     {
-        Date = 1,
-        Rating = 2,
+        Date,
+        Rating,
     }
 
     public class HaikusGetQueryParams : PagingQueryParams

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Haiku.DTO.Request;
 using Haiku.DTO.Response;
 using Haiku.Data;
+using Haiku.Data.Entities;
+using System.Linq.Expressions;
 
 namespace Haiku.Services
 {
@@ -28,6 +30,25 @@ namespace Haiku.Services
             haiku.Text = dto.Text;
             this.unitOfWork.HaikusRepository.Update(haiku);
             await this.unitOfWork.SaveAsync().ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<HaikuGetDto>> GetHaikusAsync(HaikusGetQueryParams queryParams)
+        {
+            IList<HaikuEntity> data;
+            if (queryParams.SortBy == HaikusSortBy.Date)
+            {
+                data = await this.unitOfWork.HaikusRepository.GetAllAsync(
+                    h => h.DatePublished, queryParams.Order == OrderType.Ascending, 
+                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+            }
+            else
+            {
+                data = await this.unitOfWork.HaikusRepository.GetAllAsync(
+                    h => h.Rating, queryParams.Order == OrderType.Ascending,
+                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+            }
+
+            return data.Select(h => Mapper.MapHaikuEntityToHaikuGetDto(h));
         }
     }
 }
