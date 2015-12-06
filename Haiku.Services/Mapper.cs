@@ -56,5 +56,21 @@ namespace Haiku.Services
                 DateCreated = DateTime.Now
             };
         }
+
+        public static UserGetDto MapUserToUserGetDto(User user)
+        {
+            var dto = new UserGetDto()
+            {
+                Nickname = user.Nickname,
+                Rating = user.Rating
+            };
+            var haikus = new List<HaikuGetDto>();
+            foreach (var haiku in user.Haikus)
+            {
+                haikus.Add(MapHaikuEntityToHaikuGetDto(haiku));
+            }
+            dto.Haikus = haikus;
+            return dto;
+        }
     }
 }

@@ -74,5 +74,24 @@ namespace Haiku.Services
             await this.unitOfWork.HaikusRepository.DeleteAsync(haikuId).ConfigureAwait(false);
             await this.unitOfWork.SaveAsync().ConfigureAwait(false);
         }
+
+        public async Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams)
+        {
+            IList<User> data;
+            if (queryParams.SortBy == UsersSortBy.Nickname)
+            {
+                data = await this.unitOfWork.UsersRepository.GetAllAsync(
+                    u => u.Nickname, queryParams.Order == OrderType.Ascending,
+                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+            }
+            else
+            {
+                data = await this.unitOfWork.UsersRepository.GetAllAsync(
+                    u => u.Rating, queryParams.Order == OrderType.Ascending,
+                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+            }
+
+            return data.Select(u => Mapper.MapUserToUserGetDto(u)); 
+        }
     }
 }

@@ -7,9 +7,9 @@ namespace Haiku.DTO.Response
 {
     public class UserGetDto
     {
-        public string Username { get; set; }
+        public string Nickname { get; set; }
 
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
 
         public IEnumerable<HaikuGetDto> Haikus { get; set; } 
     }

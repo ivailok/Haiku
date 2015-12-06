@@ -32,6 +32,8 @@ namespace Haiku.Data.Entities
         public string AccessToken { get; set; }
 
         public UserRole Role { get; set; }
+
+        public double? Rating { get; set; }
         
         public virtual ICollection<HaikuEntity> Haikus { get; set; }
     }
