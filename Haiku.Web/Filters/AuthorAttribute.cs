@@ -17,7 +17,7 @@ namespace Haiku.Web.Filters
     {
         private const string PublishTokenHeader = "PublishCode";
 
-        public override Task OnActionExecutingAsync(
+        public override async Task OnActionExecutingAsync(
             HttpActionContext actionContext, CancellationToken cancellationToken)
         {
             // per request lifetime
@@ -30,7 +30,7 @@ namespace Haiku.Web.Filters
             if (HeaderExtractor.ExtractHeader(actionContext.Request.Headers, PublishTokenHeader, out token))
             {
                 if (actionContext.ActionArguments.ContainsKey("nickname") &&
-                    usersService.ConfirmAuthorIdentity(actionContext.ActionArguments["nickname"].ToString(), token))
+                    await usersService.ConfirmAuthorIdentity(actionContext.ActionArguments["nickname"].ToString(), token))
                 {
                     author = true;
                 }
@@ -38,11 +38,8 @@ namespace Haiku.Web.Filters
 
             if (!author)
             {
-                var response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
-                throw new HttpResponseException(response);
+                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
             }
-
-            return base.OnActionExecutingAsync(actionContext, cancellationToken);
         }
     }
 }

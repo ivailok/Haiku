@@ -49,6 +49,11 @@ namespace Haiku.Data
         {
             return this.entities.FindAsync(id);
         }
+        
+        public Task<TEntity> GetUniqueAsync(Expression<Func<TEntity, bool>> whereClause)
+        {
+            return this.entities.Where(whereClause).SingleOrDefaultAsync();
+        }
 
         public TEntity Add(TEntity entity)
         {

@@ -69,34 +69,16 @@ namespace Haiku.Web.ApiControllers
         [Route("")]
         public async Task<IHttpActionResult> GetAll([FromUri]UsersGetQueryParams queryParams)
         {
-            var data = await this.usersService.GetUsersAsync(queryParams).ConfigureAwait(false);
-            return Ok(data);
+            var users = await this.usersService.GetUsersAsync(queryParams).ConfigureAwait(false);
+            return Ok(users);
         }
 
         [HttpGet]
-        [Route("{username}")]
-        public async Task<IHttpActionResult> Get(string username)
+        [Route("{nickname}")]
+        public async Task<IHttpActionResult> Get(string nickname)
         {
-            return Ok(new UserGetDto()
-            {
-                Nickname = "Ivaylo",
-                Rating = 4.25,
-                Haikus = new HaikuGetDto[]
-                {
-                    new HaikuGetDto()
-                    {
-                        Id = 1,
-                        Rating = 3.5,
-                        Text = "Haiku here"
-                    },
-                    new HaikuGetDto()
-                    {
-                        Id = 2,
-                        Rating = 5,
-                        Text = "One more time"
-                    }
-                }
-            });
+            var user = await this.usersService.GetUserAsync(nickname).ConfigureAwait(false);
+            return Ok(user);
         }
 
         [HttpDelete]

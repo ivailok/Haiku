@@ -20,10 +20,10 @@ namespace Haiku.Services
             this.unitOfWork = unitOfWork;
         }
 
-        private User FindUserByNickname(string nickname)
+        private async Task<User> FindUserByNicknameAsync(string nickname)
         {
-            var user = this.unitOfWork.UsersRepository.Query()
-                .Where(u => u.Nickname == nickname).SingleOrDefault();
+            var user = await this.unitOfWork.UsersRepository
+                .GetUniqueAsync(u => u.Nickname == nickname).ConfigureAwait(false);
 
             if (user == null)
             {
@@ -33,9 +33,9 @@ namespace Haiku.Services
             return user;
         }
 
-        public bool ConfirmAuthorIdentity(string nickname, string publishCode)
+        public async Task<bool> ConfirmAuthorIdentity(string nickname, string publishCode)
         {
-            var user = FindUserByNickname(nickname);
+            var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
             if (user.AccessToken == publishCode)
             {
                 return true;
@@ -55,7 +55,7 @@ namespace Haiku.Services
 
         public async Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto)
         {
-            var user = FindUserByNickname(nickname);
+            var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
 
             var haiku = Mapper.MapHaikuPublishingDtoToHaikuEntity(dto);
             haiku.DatePublished = DateTime.Now;
@@ -70,7 +70,6 @@ namespace Haiku.Services
 
         public async Task DeleteHaikuAsync(string nickname, int haikuId)
         {
-            var user = FindUserByNickname(nickname);
             await this.unitOfWork.HaikusRepository.DeleteAsync(haikuId).ConfigureAwait(false);
             await this.unitOfWork.SaveAsync().ConfigureAwait(false);
         }
@@ -92,6 +91,12 @@ namespace Haiku.Services
             }
 
             return data.Select(u => Mapper.MapUserToUserGetDto(u)); 
+        }
+
+        public async Task<UserGetDto> GetUserAsync(string nickname)
+        {
+            var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
+            return Mapper.MapUserToUserGetDto(user); 
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Haiku.Services
 {
     public interface IUsersService
     {
-        bool ConfirmAuthorIdentity(string nickname, string publishCode);
+        Task<bool> ConfirmAuthorIdentity(string nickname, string publishCode);
 
         Task RegisterAuthorAsync(AuthorRegisteringDto dto);
         
@@ -19,5 +19,7 @@ namespace Haiku.Services
         Task DeleteHaikuAsync(string nickname, int haikuId);
 
         Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams);
+
+        Task<UserGetDto> GetUserAsync(string nickname);
     }
 }

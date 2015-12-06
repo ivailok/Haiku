@@ -20,6 +20,8 @@ namespace Haiku.Data
 
         Task<TEntity> GetByIdAsync(object id);
 
+        Task<TEntity> GetUniqueAsync(Expression<Func<TEntity, bool>> whereClause);
+
         TEntity Add(TEntity entity);
 
         void Update(TEntity entity);
