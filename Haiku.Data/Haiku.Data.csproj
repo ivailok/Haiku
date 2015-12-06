@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DbAsyncRepository.cs" />
     <Compile Include="Entities\HaikuEntity.cs" />
+    <Compile Include="Entities\HaikuRating.cs" />
     <Compile Include="HaikuContext.cs" />
     <Compile Include="IAsyncRepository.cs" />
     <Compile Include="IDbContext.cs" />
@@ -70,6 +71,14 @@
     <Compile Include="Migrations\201512061549087_AddedRatingToHaikuEntity.cs" />
     <Compile Include="Migrations\201512061549087_AddedRatingToHaikuEntity.Designer.cs">
       <DependentUpon>201512061549087_AddedRatingToHaikuEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512061618244_AddedRatingsTable.cs" />
+    <Compile Include="Migrations\201512061618244_AddedRatingsTable.Designer.cs">
+      <DependentUpon>201512061618244_AddedRatingsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512061631433_Configuring_Table_Relationships.cs" />
+    <Compile Include="Migrations\201512061631433_Configuring_Table_Relationships.Designer.cs">
+      <DependentUpon>201512061631433_Configuring_Table_Relationships.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
@@ -93,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512061549087_AddedRatingToHaikuEntity.resx">
       <DependentUpon>201512061549087_AddedRatingToHaikuEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512061618244_AddedRatingsTable.resx">
+      <DependentUpon>201512061618244_AddedRatingsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512061631433_Configuring_Table_Relationships.resx">
+      <DependentUpon>201512061631433_Configuring_Table_Relationships.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

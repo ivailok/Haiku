@@ -18,6 +18,11 @@ namespace Haiku.Data.Entities
     [Table("Users")]
     public class User : TEntity<int>
     {
+        public User()
+        {
+            this.Haikus = new HashSet<HaikuEntity>();
+        }
+
         [Required]
         [StringLength(20, MinimumLength = 4)]
         public string Nickname { get; set; }

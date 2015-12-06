@@ -20,6 +20,8 @@ namespace Haiku.Data
 
         public DbSet<HaikuEntity> Haikus { get; set; }
 
+        public DbSet<HaikuRating> Ratings { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

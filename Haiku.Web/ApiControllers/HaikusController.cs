@@ -33,6 +33,7 @@ namespace Haiku.Web.ApiControllers
         [Route("{id}/ratings")]
         public async Task<IHttpActionResult> Rate(int id, [FromBody]HaikuRateDto dto)
         {
+            await this.haikusService.RateAsync(id, dto).ConfigureAwait(false);
             return CreatedWithoutLocationAndContent();
         }
 

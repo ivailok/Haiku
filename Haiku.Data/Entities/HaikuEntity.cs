@@ -11,6 +11,11 @@ namespace Haiku.Data.Entities
     [Table("Haikus")]
     public class HaikuEntity : TEntity<int>
     {
+        public HaikuEntity()
+        {
+            this.Ratings = new HashSet<HaikuRating>();
+        }
+
         [Required]
         [MinLength(10)]
         public string Text { get; set; }
@@ -22,5 +27,7 @@ namespace Haiku.Data.Entities
         public double? Rating { get; set; }
         
         public virtual User User { get; set; }
+
+        public virtual ICollection<HaikuRating> Ratings { get; set; }
     }
 }

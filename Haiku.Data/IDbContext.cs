@@ -14,6 +14,8 @@ namespace Haiku.Data
 
         DbSet<HaikuEntity> Haikus { get; set; }
 
+        DbSet<HaikuRating> Ratings { get; set; }
+
         Task<int> SaveChangesAsync();
     }
 }

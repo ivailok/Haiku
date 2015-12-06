@@ -47,5 +47,14 @@ namespace Haiku.Services
                 Rating = haiku.Rating
             };
         }
+
+        public static HaikuRating MapHaikuRateDtoToHaikuRating(HaikuRateDto dto)
+        {
+            return new HaikuRating()
+            {
+                Value = dto.Rating,
+                DateCreated = DateTime.Now
+            };
+        }
     }
 }

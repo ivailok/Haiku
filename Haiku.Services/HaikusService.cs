@@ -50,5 +50,13 @@ namespace Haiku.Services
 
             return data.Select(h => Mapper.MapHaikuEntityToHaikuGetDto(h));
         }
+
+        public async Task RateAsync(int id, HaikuRateDto dto)
+        {
+            var haiku = await this.unitOfWork.HaikusRepository.GetByIdAsync(id).ConfigureAwait(false);
+            var rating = Mapper.MapHaikuRateDtoToHaikuRating(dto);
+            haiku.Ratings.Add(rating);
+            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
+        }
     }
 }
