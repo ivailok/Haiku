@@ -60,7 +60,6 @@ namespace Haiku.Services
             var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
 
             var haiku = Mapper.MapHaikuPublishingDtoToHaikuEntity(dto);
-            haiku.DatePublished = DateTime.Now;
             haiku.User = user;
 
             var addedHaiku = this.unitOfWork.HaikusRepository.Add(haiku);

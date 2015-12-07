@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201512071131281_Created_Reports_Table.Designer.cs">
       <DependentUpon>201512071131281_Created_Reports_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512071319084_Added_Haiku_Rating_Helper_Fields.cs" />
+    <Compile Include="Migrations\201512071319084_Added_Haiku_Rating_Helper_Fields.Designer.cs">
+      <DependentUpon>201512071319084_Added_Haiku_Rating_Helper_Fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512071131281_Created_Reports_Table.resx">
       <DependentUpon>201512071131281_Created_Reports_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071319084_Added_Haiku_Rating_Helper_Fields.resx">
+      <DependentUpon>201512071319084_Added_Haiku_Rating_Helper_Fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

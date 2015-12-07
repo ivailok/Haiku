@@ -26,6 +26,9 @@ namespace Haiku.Services
             return new HaikuEntity()
             {
                 Text = dto.Text,
+                DatePublished = DateTime.Now,
+                RatingsSum = 0,
+                RatingsCount = 0
             };
         }
 

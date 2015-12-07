@@ -26,6 +26,10 @@ namespace Haiku.Data.Entities
         public int UserId { get; set; }
 
         public double? Rating { get; set; }
+
+        public int RatingsSum { get; set; }
+
+        public int RatingsCount { get; set; }
         
         public virtual User User { get; set; }
 
