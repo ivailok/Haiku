@@ -184,6 +184,7 @@
     <Compile Include="ApiControllers\UsersController.cs" />
     <Compile Include="Filters\AdministratorAttribute.cs" />
     <Compile Include="Filters\AuthorAttribute.cs" />
+    <Compile Include="Filters\ExceptionAttribute.cs" />
     <Compile Include="Filters\HeaderExtractor.cs" />
     <Compile Include="Filters\ValidationAttribute.cs" />
     <Compile Include="Global.asax.cs">

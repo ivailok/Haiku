@@ -8,6 +8,7 @@ using Haiku.Data;
 using Haiku.Data.Entities;
 using System.Threading;
 using Haiku.DTO.Response;
+using Haiku.DTO.Exceptions;
 
 namespace Haiku.Services
 {
@@ -29,7 +30,7 @@ namespace Haiku.Services
 
             if (user == null)
             {
-                throw new Exception("Author not found.");
+                throw new NotFoundException(string.Format("Author '{0}' not found.", nickname));
             }
 
             return user;
