@@ -16,10 +16,10 @@ namespace Haiku.Services
         
         Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto);
 
-        Task DeleteHaikuAsync(string nickname, int haikuId);
-
         Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams);
 
         Task<UserGetDto> GetUserAsync(string nickname);
+
+        Task DeleteHaikusAsync(string nickname);
     }
 }

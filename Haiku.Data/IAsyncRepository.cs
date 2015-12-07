@@ -29,5 +29,7 @@ namespace Haiku.Data
         void Delete(TEntity entity);
 
         Task DeleteAsync(object id);
+
+        void DeleteMany(Expression<Func<TEntity, bool>> whereClause);
     }
 }

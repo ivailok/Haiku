@@ -39,8 +39,9 @@ namespace Haiku.Web.ApiControllers
 
         [HttpPost]
         [Route("{id}/reports")]
-        public async Task<IHttpActionResult> SendReport(int id)
+        public async Task<IHttpActionResult> SendReport(int id, [FromBody]HaikuReportingDto dto)
         {
+            await this.haikusService.SendReport(id, dto).ConfigureAwait(false);
             return CreatedWithoutLocationAndContent();
         }
 
@@ -49,6 +50,7 @@ namespace Haiku.Web.ApiControllers
         [Administrator]
         public async Task<IHttpActionResult> Delete(int id)
         {
+            await this.haikusService.DeleteHaikuAsync(id).ConfigureAwait(false);
             return NoContent();
         }
     }

@@ -14,10 +14,12 @@ namespace Haiku.Services
     public class UsersService : IUsersService
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly IHaikusService haikusService;
 
-        public UsersService(IUnitOfWork unitOfWork)
+        public UsersService(IUnitOfWork unitOfWork, IHaikusService haikusService)
         {
             this.unitOfWork = unitOfWork;
+            this.haikusService = haikusService;
         }
 
         private async Task<User> FindUserByNicknameAsync(string nickname)
@@ -50,7 +52,7 @@ namespace Haiku.Services
         {
             User user = Mapper.MapAuthorRegisterDtoToUser(dto);
             this.unitOfWork.UsersRepository.Add(user);
-            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
+            await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
 
         public async Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto)
@@ -62,16 +64,10 @@ namespace Haiku.Services
             haiku.User = user;
 
             var addedHaiku = this.unitOfWork.HaikusRepository.Add(haiku);
-            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
+            await this.unitOfWork.CommitAsync().ConfigureAwait(false);
 
             var published = Mapper.MapHaikuEntityToHaikuPublishedDto(addedHaiku);
             return published;
-        }
-
-        public async Task DeleteHaikuAsync(string nickname, int haikuId)
-        {
-            await this.unitOfWork.HaikusRepository.DeleteAsync(haikuId).ConfigureAwait(false);
-            await this.unitOfWork.SaveAsync().ConfigureAwait(false);
         }
 
         public async Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams)
@@ -97,6 +93,17 @@ namespace Haiku.Services
         {
             var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
             return Mapper.MapUserToUserGetDto(user); 
+        }
+
+        public async Task DeleteHaikusAsync(string nickname)
+        {
+            var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
+            var haikuIds = user.Haikus.Select(h => h.Id).ToList();
+            foreach (var id in haikuIds)
+            {
+                await this.haikusService.DeleteHaikuNFAsync(id).ConfigureAwait(false);
+            }
+            await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
     }
 }

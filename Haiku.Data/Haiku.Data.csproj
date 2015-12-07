@@ -52,6 +52,7 @@
     <Compile Include="DbAsyncRepository.cs" />
     <Compile Include="Entities\HaikuEntity.cs" />
     <Compile Include="Entities\HaikuRating.cs" />
+    <Compile Include="Entities\Report.cs" />
     <Compile Include="HaikuContext.cs" />
     <Compile Include="IAsyncRepository.cs" />
     <Compile Include="IDbContext.cs" />
@@ -84,6 +85,10 @@
     <Compile Include="Migrations\201512061651427_Added_Rating_To_Users_Table.Designer.cs">
       <DependentUpon>201512061651427_Added_Rating_To_Users_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512071131281_Created_Reports_Table.cs" />
+    <Compile Include="Migrations\201512071131281_Created_Reports_Table.Designer.cs">
+      <DependentUpon>201512071131281_Created_Reports_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512061651427_Added_Rating_To_Users_Table.resx">
       <DependentUpon>201512061651427_Added_Rating_To_Users_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071131281_Created_Reports_Table.resx">
+      <DependentUpon>201512071131281_Created_Reports_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

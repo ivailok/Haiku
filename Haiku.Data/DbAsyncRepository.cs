@@ -75,5 +75,10 @@ namespace Haiku.Data
             TEntity entity = await this.entities.FindAsync(id);
             this.Delete(entity);
         }
+
+        public void DeleteMany(Expression<Func<TEntity, bool>> whereClause)
+        {
+            this.entities.RemoveRange(this.entities.Where(whereClause));
+        }
     }
 }

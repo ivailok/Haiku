@@ -72,5 +72,14 @@ namespace Haiku.Services
             dto.Haikus = haikus;
             return dto;
         }
+
+        public static Report MapHaikuReportingDtoToReport(HaikuReportingDto dto)
+        {
+            return new Report()
+            {
+                Reason = dto.Reason,
+                DateSent = DateTime.Now
+            };
+        }
     }
 }

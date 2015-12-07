@@ -45,6 +45,7 @@
     <Compile Include="Request\HaikuModifyDto.cs" />
     <Compile Include="Request\HaikuPublishingDto.cs" />
     <Compile Include="Request\HaikuRateDto.cs" />
+    <Compile Include="Request\HaikuSendingReportDto.cs" />
     <Compile Include="Request\HaikusGetQueryParams.cs" />
     <Compile Include="Request\OrderType.cs" />
     <Compile Include="Request\PagingQueryParams.cs" />

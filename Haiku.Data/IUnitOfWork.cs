@@ -13,6 +13,10 @@ namespace Haiku.Data
 
         IAsyncRepository<HaikuEntity> HaikusRepository { get; }
 
-        Task SaveAsync();
+        IAsyncRepository<Report> ReportsRepository { get; }
+
+        IAsyncRepository<HaikuRating> RatingsRepository { get; }
+
+        Task CommitAsync();
     }
 }

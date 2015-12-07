@@ -12,16 +12,22 @@ namespace Haiku.Data
         private IDbContext context;
         private IAsyncRepository<User> usersRepository;
         private IAsyncRepository<HaikuEntity> haikusRepository;
+        private IAsyncRepository<Report> reportsRepository;
+        private IAsyncRepository<HaikuRating> ratingsRepository;
         private bool disposedValue = false;
 
         public UnitOfWork(
             IDbContext context,
             IAsyncRepository<User> usersRepository, 
-            IAsyncRepository<HaikuEntity> haikusRepository)
+            IAsyncRepository<HaikuEntity> haikusRepository,
+            IAsyncRepository<Report> reportsRepository,
+            IAsyncRepository<HaikuRating> ratingsRepository)
         {
             this.context = context;
             this.usersRepository = usersRepository;
             this.haikusRepository = haikusRepository;
+            this.reportsRepository = reportsRepository;
+            this.ratingsRepository = ratingsRepository;
         }
 
         public IAsyncRepository<User> UsersRepository
@@ -34,7 +40,18 @@ namespace Haiku.Data
             get { return this.haikusRepository; }
         }
 
-        public Task SaveAsync()
+        public IAsyncRepository<Report> ReportsRepository
+        {
+            get { return this.reportsRepository; }
+            
+        }
+
+        public IAsyncRepository<HaikuRating> RatingsRepository
+        {
+            get { return this.ratingsRepository; }
+        }
+
+        public Task CommitAsync()
         {
             return this.context.SaveChangesAsync();
         }

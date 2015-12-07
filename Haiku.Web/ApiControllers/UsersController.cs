@@ -51,7 +51,7 @@ namespace Haiku.Web.ApiControllers
         public async Task<IHttpActionResult> DeleteHaiku(
             string nickname, int haikuId)
         {
-            await this.usersService.DeleteHaikuAsync(nickname, haikuId).ConfigureAwait(false);
+            await this.haikusService.DeleteHaikuAsync(haikuId).ConfigureAwait(false);
             return NoContent();
         }
 
@@ -82,17 +82,18 @@ namespace Haiku.Web.ApiControllers
         }
 
         [HttpDelete]
-        [Route("{username}/haikus")]
+        [Route("{nickname}/haikus")]
         [Author]
-        public async Task<IHttpActionResult> DeleteHaikus(string username)
+        public async Task<IHttpActionResult> DeleteHaikus(string nickname)
         {
+            await this.usersService.DeleteHaikusAsync(nickname).ConfigureAwait(false);
             return NoContent();
         }
 
         [HttpDelete]
-        [Route("{username}")]
+        [Route("{nickname}")]
         [Administrator]
-        public async Task<IHttpActionResult> Delete(string username)
+        public async Task<IHttpActionResult> Delete(string nickname)
         {
             return NoContent();
         }

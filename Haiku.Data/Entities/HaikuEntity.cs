@@ -14,6 +14,7 @@ namespace Haiku.Data.Entities
         public HaikuEntity()
         {
             this.Ratings = new HashSet<HaikuRating>();
+            this.Reports = new HashSet<Report>();
         }
 
         [Required]
@@ -29,5 +30,7 @@ namespace Haiku.Data.Entities
         public virtual User User { get; set; }
 
         public virtual ICollection<HaikuRating> Ratings { get; set; }
+
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }
