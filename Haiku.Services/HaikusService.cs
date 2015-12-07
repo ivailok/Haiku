@@ -69,9 +69,26 @@ namespace Haiku.Services
             var haiku = await this.unitOfWork.HaikusRepository.GetByIdAsync(id).ConfigureAwait(false);
             var rating = Mapper.MapHaikuRateDtoToHaikuRating(dto);
             haiku.Ratings.Add(rating);
+
+            // updating haiku rating
+            var oldHaikuRating = haiku.Rating;
             haiku.RatingsCount++;
             haiku.RatingsSum += rating.Value;
             haiku.Rating = ((double) haiku.RatingsSum) / haiku.RatingsCount;
+
+            // updating user rating
+            var user = await this.unitOfWork.UsersRepository.GetByIdAsync(haiku.UserId);
+            if (oldHaikuRating == null)
+            {
+                user.HaikusRatingSum += haiku.Rating.Value;
+                user.HaikusCount++;
+            }
+            else
+            {
+                user.HaikusRatingSum = user.HaikusRatingSum- oldHaikuRating.Value + haiku.Rating.Value;
+            }
+            user.Rating = user.HaikusRatingSum / user.HaikusCount;
+
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
 

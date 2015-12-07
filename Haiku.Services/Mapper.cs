@@ -17,7 +17,9 @@ namespace Haiku.Services
             {
                 Nickname = dto.Nickname,
                 AccessToken = dto.PublishCode,
-                Role = UserRole.Author
+                Role = UserRole.Author,
+                HaikusRatingSum = 0.0,
+                HaikusCount = 0
             };
         }
 
