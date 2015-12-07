@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201512071350046_Added_User_Rating_Helper_Fields.Designer.cs">
       <DependentUpon>201512071350046_Added_User_Rating_Helper_Fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512071957527_IX_User_AccessToken.cs" />
+    <Compile Include="Migrations\201512071957527_IX_User_AccessToken.Designer.cs">
+      <DependentUpon>201512071957527_IX_User_AccessToken.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512071350046_Added_User_Rating_Helper_Fields.resx">
       <DependentUpon>201512071350046_Added_User_Rating_Helper_Fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071957527_IX_User_AccessToken.resx">
+      <DependentUpon>201512071957527_IX_User_AccessToken.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
