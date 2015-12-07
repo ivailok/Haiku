@@ -11,7 +11,7 @@ namespace Haiku.Data.Entities
     public enum UserRole
     {
         Author,
-        Vip,
+        VIP,
         Admin
     }
 

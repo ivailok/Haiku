@@ -21,8 +21,21 @@ namespace Haiku.Services
 
         public async Task<IEnumerable<ReportGetDto>> GetReportsAsync(ReportsGetQueryParams queryParams)
         {
-            IList<Report> reports = await this.unitOfWork.ReportsRepository.GetAllAsync(
-                r => r.DateSent, true, queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+            var preQuery = this.unitOfWork.ReportsRepository.Query();
+
+            IOrderedQueryable<Report> sortQuery;
+            if (queryParams.Order == OrderType.Ascending)
+            {
+                sortQuery = preQuery.OrderBy(h => h.DateSent);
+            }
+            else
+            {
+                sortQuery = preQuery.OrderByDescending(h => h.DateSent);
+            }
+
+            var pagingQuery = sortQuery.Skip(queryParams.Skip).Take(queryParams.Take);
+
+            IList<Report> reports = await this.unitOfWork.ReportsRepository.GetAllAsync(pagingQuery);
             return reports.Select(r => Mapper.MapReportToReportGetDto(r));
         }
     }

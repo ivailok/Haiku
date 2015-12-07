@@ -86,21 +86,39 @@ namespace Haiku.Services
 
         public async Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams)
         {
-            IList<User> data;
+            // exclude administrators
+            // show vip users first
+            var preQuery = this.unitOfWork.UsersRepository.Query()
+                .Where(u => u.Role != UserRole.Admin).OrderByDescending(u => u.Role);
+
+            IOrderedQueryable<User> sortQuery;
             if (queryParams.SortBy == UsersSortBy.Nickname)
             {
-                data = await this.unitOfWork.UsersRepository.GetAllAsync(
-                    u => u.Nickname, queryParams.Order == OrderType.Ascending,
-                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+                if (queryParams.Order == OrderType.Ascending)
+                {
+                    sortQuery = preQuery.ThenBy(u => u.Nickname);
+                }
+                else
+                {
+                    sortQuery = preQuery.ThenByDescending(u => u.Nickname);
+                }
             }
             else
             {
-                data = await this.unitOfWork.UsersRepository.GetAllAsync(
-                    u => u.Rating, queryParams.Order == OrderType.Ascending,
-                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+                if (queryParams.Order == OrderType.Ascending)
+                {
+                    sortQuery = preQuery.ThenBy(u => u.Rating);
+                }
+                else
+                {
+                    sortQuery = preQuery.ThenByDescending(u => u.Rating);
+                }
             }
 
-            return data.Select(u => Mapper.MapUserToUserGetDto(u)); 
+            var pagingQuery = sortQuery.Skip(queryParams.Skip).Take(queryParams.Take);
+
+            var data = await this.unitOfWork.UsersRepository.GetAllAsync(pagingQuery).ConfigureAwait(false);
+            return data.Select(u => Mapper.MapUserToUserGetDto(u));
         }
 
         public async Task<UserGetDto> GetUserAsync(string nickname)

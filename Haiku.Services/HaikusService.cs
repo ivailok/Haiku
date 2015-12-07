@@ -47,20 +47,35 @@ namespace Haiku.Services
 
         public async Task<IEnumerable<HaikuGetDto>> GetHaikusAsync(HaikusGetQueryParams queryParams)
         {
-            IList<HaikuEntity> data;
+            var preQuery = this.unitOfWork.HaikusRepository.Query();
+
+            IOrderedQueryable<HaikuEntity> sortQuery;
             if (queryParams.SortBy == HaikusSortBy.Date)
             {
-                data = await this.unitOfWork.HaikusRepository.GetAllAsync(
-                    h => h.DatePublished, queryParams.Order == OrderType.Ascending, 
-                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+                if (queryParams.Order == OrderType.Ascending)
+                {
+                    sortQuery = preQuery.OrderBy(h => h.DatePublished);
+                }
+                else
+                {
+                    sortQuery = preQuery.OrderByDescending(h => h.DatePublished);
+                }
             }
             else
             {
-                data = await this.unitOfWork.HaikusRepository.GetAllAsync(
-                    h => h.Rating, queryParams.Order == OrderType.Ascending,
-                    queryParams.Skip, queryParams.Take).ConfigureAwait(false);
+                if (queryParams.Order == OrderType.Ascending)
+                {
+                    sortQuery = preQuery.OrderBy(h => h.Rating);
+                }
+                else
+                {
+                    sortQuery = preQuery.OrderByDescending(h => h.Rating);
+                }
             }
 
+            var pagingQuery = sortQuery.Skip(queryParams.Skip).Take(queryParams.Take);
+
+            var data = await this.unitOfWork.HaikusRepository.GetAllAsync(pagingQuery).ConfigureAwait(false);
             return data.Select(h => Mapper.MapHaikuEntityToHaikuGetDto(h));
         }
 

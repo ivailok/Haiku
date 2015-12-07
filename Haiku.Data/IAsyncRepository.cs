@@ -14,9 +14,11 @@ namespace Haiku.Data
     {
         IQueryable<TEntity> Query();
 
-        Task<List<TEntity>> GetAllAsync();
-
-        Task<IList<TEntity>> GetAllAsync<T>(Expression<Func<TEntity, T>> sortBy, bool ascending, int skip, int take);
+        Task<IList<TEntity>> GetAllAsync();
+        
+        Task<IList<TEntity>> GetAllAsync(IQueryable<TEntity> query);
+        
+        Task<IList<TEntity>> GetAllAsync(IOrderedQueryable<TEntity> query);
 
         Task<TEntity> GetByIdAsync(object id);
 

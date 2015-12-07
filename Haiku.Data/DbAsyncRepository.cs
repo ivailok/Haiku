@@ -26,23 +26,19 @@ namespace Haiku.Data
             return this.entities.AsQueryable();
         }
         
-        public Task<List<TEntity>> GetAllAsync()
+        public async Task<IList<TEntity>> GetAllAsync()
         {
-            return this.entities.ToListAsync();
+            return await this.entities.ToListAsync().ConfigureAwait(false);
         }
-        
-        public async Task<IList<TEntity>> GetAllAsync<T>(Expression<Func<TEntity, T>> sortBy, bool ascending, int skip, int take)
+
+        public async Task<IList<TEntity>> GetAllAsync(IQueryable<TEntity> query)
         {
-            IOrderedQueryable<TEntity> sortQuery;
-            if (ascending)
-            {
-                sortQuery = this.entities.OrderBy(sortBy);
-            }
-            else
-            {
-                sortQuery = this.entities.OrderByDescending(sortBy);
-            }
-            return await sortQuery.Skip(skip).Take(take).ToListAsync().ConfigureAwait(false);
+            return await query.ToListAsync().ConfigureAwait(false);
+        }
+
+        public async Task<IList<TEntity>> GetAllAsync(IOrderedQueryable<TEntity> query)
+        {
+            return await query.ToListAsync().ConfigureAwait(false);
         }
 
         public Task<TEntity> GetByIdAsync(object id)
