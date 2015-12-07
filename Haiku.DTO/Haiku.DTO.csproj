@@ -51,6 +51,7 @@
     <Compile Include="Request\PagingQueryParams.cs" />
     <Compile Include="Request\ReportsGetQueryParams.cs" />
     <Compile Include="Request\AuthorRegisteringDto.cs" />
+    <Compile Include="Request\ChangeableUserRole.cs" />
     <Compile Include="Request\UsersGetQueryParams.cs" />
     <Compile Include="Response\HaikuPublishedDto.cs" />
     <Compile Include="Response\HaikuGetDto.cs" />

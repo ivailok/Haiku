@@ -137,5 +137,24 @@ namespace Haiku.Services
             }
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
+
+        public async Task DeleteProfileAsync(string nickname)
+        {
+            var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
+            var haikuIds = user.Haikus.Select(h => h.Id).ToList();
+            foreach (var id in haikuIds)
+            {
+                await this.haikusService.DeleteHaikuNFAsync(id).ConfigureAwait(false);
+            }
+            this.unitOfWork.UsersRepository.Delete(user);
+            await this.unitOfWork.CommitAsync().ConfigureAwait(false);
+        }
+
+        public async Task ChangeUserRoleAsync(string nickname, ChangeableUserRole role)
+        {
+            var user = await this.FindUserByNicknameAsync(nickname).ConfigureAwait(false);
+            user.Role = (UserRole) role;
+            await this.unitOfWork.CommitAsync().ConfigureAwait(false);
+        }
     }
 }

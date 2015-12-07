@@ -95,6 +95,16 @@ namespace Haiku.Web.ApiControllers
         [Administrator]
         public async Task<IHttpActionResult> Delete(string nickname)
         {
+            await this.usersService.DeleteProfileAsync(nickname).ConfigureAwait(false);
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("{nickname}")]
+        [Administrator]
+        public async Task<IHttpActionResult> ChangeUserRole(string nickname, [FromUri]ChangeableUserRole role)
+        {
+            await this.usersService.ChangeUserRoleAsync(nickname, role).ConfigureAwait(false);
             return NoContent();
         }
     }

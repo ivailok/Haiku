@@ -23,5 +23,9 @@ namespace Haiku.Services
         Task<UserGetDto> GetUserAsync(string nickname);
 
         Task DeleteHaikusAsync(string nickname);
+
+        Task DeleteProfileAsync(string nickname);
+
+        Task ChangeUserRoleAsync(string nickname, ChangeableUserRole role);
     }
 }
