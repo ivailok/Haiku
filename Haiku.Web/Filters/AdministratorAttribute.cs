@@ -12,12 +12,11 @@ using System.Web.Http.Filters;
 
 namespace Haiku.Web.Filters
 {
-    public class AdministratorAttribute : ActionFilterAttribute
+    public class AdministratorAttribute : AuthorizationFilterAttribute
     {
         private const string AdminTokenHeader = "ManageToken";
 
-        public override async Task OnActionExecutingAsync(
-            HttpActionContext actionContext, CancellationToken cancellationToken)
+        public override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
         {
             // per request lifetime
             var requestScope = actionContext.Request.GetDependencyScope();
