@@ -8,26 +8,28 @@ using System.Web.Http;
 using Haiku.Web.Filters;
 using Haiku.DTO.Request;
 using Haiku.DTO.Response;
+using Haiku.Services;
 
 namespace Haiku.Web.ApiControllers
 {
     [RoutePrefix("api/reports")]
     public class ReportsController : BaseController
     {
+        private IReportsService reportsService;
+
+        public ReportsController(IReportsService reportsService)
+        {
+            this.reportsService = reportsService;
+        }
+
         [HttpGet]
         [Route("")]
         [Administrator]
         public async Task<IHttpActionResult> GetAll(
             [FromUri]ReportsGetQueryParams queryParams)
         {
-            return Ok(new ReportGetDto[]
-            {
-                new ReportGetDto()
-                {
-                    Reason = "Vulgarno",
-                    DateCreated = DateTime.Now
-                }
-            });
+            var reports = await this.reportsService.GetReportsAsync(queryParams).ConfigureAwait(false);
+            return Ok(reports);
         }
     }
 }

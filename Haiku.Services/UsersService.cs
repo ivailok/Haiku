@@ -35,10 +35,25 @@ namespace Haiku.Services
             return user;
         }
 
-        public async Task<bool> ConfirmAuthorIdentity(string nickname, string publishCode)
+        public async Task<bool> ConfirmAuthorIdentityAsync(string nickname, string publishCode)
         {
             var user = await FindUserByNicknameAsync(nickname).ConfigureAwait(false);
             if (user.AccessToken == publishCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> ConfirmAdministratorIdentityAsync(string manageToken)
+        {
+            var user = await this.unitOfWork.UsersRepository.GetUniqueAsync(
+                u => u.AccessToken == manageToken).ConfigureAwait(false);
+
+            if (user != null && user.Role == UserRole.Admin)
             {
                 return true;
             }

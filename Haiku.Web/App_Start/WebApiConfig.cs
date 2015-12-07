@@ -50,6 +50,7 @@ namespace Haiku.Web
         {
             builder.RegisterType<UsersService>().As<IUsersService>().InstancePerRequest();
             builder.RegisterType<HaikusService>().As<IHaikusService>().InstancePerRequest();
+            builder.RegisterType<ReportsService>().As<IReportsService>().InstancePerRequest();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace Haiku.DTO.Response
     {
         public string Reason { get; set; }
 
-        public DateTime DateCreated { get; set; } 
+        public DateTime DateSent { get; set; } 
     }
 }

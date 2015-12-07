@@ -86,5 +86,14 @@ namespace Haiku.Services
                 DateSent = DateTime.Now
             };
         }
+
+        public static ReportGetDto MapReportToReportGetDto(Report report)
+        {
+            return new ReportGetDto()
+            {
+                Reason = report.Reason,
+                DateSent = report.DateSent
+            };
+        }
     }
 }

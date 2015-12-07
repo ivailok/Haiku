@@ -30,7 +30,8 @@ namespace Haiku.Web.Filters
             if (HeaderExtractor.ExtractHeader(actionContext.Request.Headers, PublishTokenHeader, out token))
             {
                 if (actionContext.ActionArguments.ContainsKey("nickname") &&
-                    await usersService.ConfirmAuthorIdentity(actionContext.ActionArguments["nickname"].ToString(), token))
+                    await usersService.ConfirmAuthorIdentityAsync(
+                        actionContext.ActionArguments["nickname"].ToString(), token).ConfigureAwait(false))
                 {
                     author = true;
                 }

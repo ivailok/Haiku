@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Haiku.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,15 +16,19 @@ namespace Haiku.Web.Filters
     {
         private const string AdminTokenHeader = "ManageToken";
 
-        public override Task OnActionExecutingAsync(
+        public override async Task OnActionExecutingAsync(
             HttpActionContext actionContext, CancellationToken cancellationToken)
         {
+            // per request lifetime
+            var requestScope = actionContext.Request.GetDependencyScope();
+            var usersService = requestScope.GetService(typeof(IUsersService)) as IUsersService;
+
             bool admin = false;
 
             string token;
             if (HeaderExtractor.ExtractHeader(actionContext.Request.Headers, AdminTokenHeader, out token))
             {
-                if (token == "321") // magic here
+                if (await usersService.ConfirmAdministratorIdentityAsync(token).ConfigureAwait(false))
                 {
                     admin = true;
                 }
@@ -33,8 +38,6 @@ namespace Haiku.Web.Filters
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
             }
-
-            return base.OnActionExecutingAsync(actionContext, cancellationToken);
         }
     }
 }
