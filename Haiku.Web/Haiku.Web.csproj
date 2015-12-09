@@ -186,11 +186,13 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\haikus-controller.js" />
     <Content Include="Scripts\app\controllers\header-controller.js" />
+    <Content Include="Scripts\app\controllers\user-controller.js" />
     <Content Include="Scripts\app\controllers\users-controller.js" />
     <Content Include="Scripts\app\routing.js" />
     <Content Include="Scripts\app\services\haikus-service.js" />
     <Content Include="Scripts\app\services\users-service.js" />
     <Content Include="Scripts\app\views\haikus.html" />
+    <Content Include="Scripts\app\views\user.html" />
     <Content Include="Scripts\app\views\users.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -8,6 +8,10 @@
             controller: 'UsersController',
             templateUrl: '/Scripts/app/views/users.html'
         })
+        .when('/users/:nickname', {
+            controller: 'UserController',
+            templateUrl: '/Scripts/app/views/user.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

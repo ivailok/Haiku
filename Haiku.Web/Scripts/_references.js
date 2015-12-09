@@ -7,6 +7,7 @@
 /// <reference path="app/app.js" />
 /// <reference path="app/controllers/haikus-controller.js" />
 /// <reference path="app/controllers/header-controller.js" />
+/// <reference path="app/controllers/user-controller.js" />
 /// <reference path="app/controllers/users-controller.js" />
 /// <reference path="app/routing.js" />
 /// <reference path="app/services/haikus-service.js" />
