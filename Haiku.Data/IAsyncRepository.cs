@@ -14,6 +14,8 @@ namespace Haiku.Data
     {
         IQueryable<TEntity> Query();
 
+        IQueryable<TEntity> QueryInclude<T>(Expression<Func<TEntity, T>> expr);
+
         Task<IList<TEntity>> GetAllAsync();
         
         Task<IList<TEntity>> GetAllAsync(IQueryable<TEntity> query);

@@ -25,7 +25,12 @@ namespace Haiku.Data
         {
             return this.entities.AsQueryable();
         }
-        
+
+        public IQueryable<TEntity> QueryInclude<T>(Expression<Func<TEntity, T>> expr)
+        {
+            return this.entities.Include(expr).AsQueryable();
+        }
+
         public async Task<IList<TEntity>> GetAllAsync()
         {
             return await this.entities.ToListAsync().ConfigureAwait(false);

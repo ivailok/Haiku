@@ -1,9 +1,14 @@
 ﻿app.factory('HaikusService', ['$http', function ($http) {
-    return $http.get(serverUrl + "haikus?sortBy=Date&order=Descending&skip=0&take=20")
-        .success(function (data) {
-            return data;
-        })
-        .error(function (error) {
-            return error;
-        });
+    var service = {
+        getHaikus : function (sortBy, orderBy, skip, take) {
+            return $http.get(serverUrl + "haikus?sortBy=" + sortBy + "&order=" + orderBy + "&skip=" + skip + "&take=" + take)
+                .then(function (result) {
+                    return result.data;
+                },
+                function (error) {
+                    alert("Error: no data returned");
+                });
+        }
+    };
+    return service;
 }]);

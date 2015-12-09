@@ -49,7 +49,8 @@ namespace Haiku.Services
             {
                 Id = haiku.Id,
                 Text = haiku.Text,
-                Rating = haiku.Rating
+                Rating = haiku.Rating,
+                Author = haiku.User.Nickname
             };
         }
 

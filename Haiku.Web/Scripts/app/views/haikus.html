@@ -1,7 +1,32 @@
-﻿<div class="container-fluid" ng-controller="HaikusController">
-    <div class="container-fluid" ng-repeat="haiku in haikus">
-        <p>{{ haiku.Id }}</p>
-        <p>{{ haiku.Rating }}</p>
-        <p>{{ haiku.Text }}</p>
+﻿<div style="max-width: inherit; width: inherit" class="container-fluid" ng-controller="HaikusController">
+    <span>
+        <span>
+            Sort by: 
+            <select ng-model="selectedSortOption" ng-options="opt.name for opt in sortOptions"></select>
+        </span>
+
+        <span>
+            Order by:
+            <select ng-model="selectedOrderOption" ng-options="opt.name for opt in orderOptions"></select>
+        </span>
+    </span>
+
+    <hr />
+    
+    <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in haikus">
+        <div style="max-width: inherit; width: inherit">
+            <textarea disabled style="resize: none; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
+        </div>
+        <span>
+            {{ haiku.author }}
+            <span style="float: right">
+                {{ haiku.rating }}
+                <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
+            </span>
+        </span>
+        
+        <div style="height: 50px" class="divider"></div>
     </div>
+
+    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
 </div>

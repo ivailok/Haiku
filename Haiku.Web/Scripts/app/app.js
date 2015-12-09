@@ -1,2 +1,2 @@
 ﻿var serverUrl = "http://localhost:2950/api/";
-var app = angular.module('HaikuApp', ['ngRoute']);
+var app = angular.module('HaikuApp', ['ngRoute', 'ui.bootstrap']);

@@ -47,7 +47,7 @@ namespace Haiku.Services
 
         public async Task<IEnumerable<HaikuGetDto>> GetHaikusAsync(HaikusGetQueryParams queryParams)
         {
-            var preQuery = this.unitOfWork.HaikusRepository.Query();
+            var preQuery = this.unitOfWork.HaikusRepository.QueryInclude(h => h.User);
 
             IOrderedQueryable<HaikuEntity> sortQuery;
             if (queryParams.SortBy == HaikusSortBy.Date)
