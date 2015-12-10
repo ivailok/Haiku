@@ -1,4 +1,4 @@
-﻿app.directive("haikuInfo", function () {
+﻿app.directive("haikuSmallInfo", function () {
     var controller = ['$scope', '$location', function ($scope, $location) {
         $scope.selectUser = function (nickname) {
             $location.path("/users/" + nickname);
@@ -11,7 +11,7 @@
             haiku: '=',
             showAuthor: '='
         },
-        templateUrl: '/Scripts/app/views/partials/haiku.html',
+        templateUrl: '/Scripts/app/views/partials/haikuSmall.html',
         controller: controller
     };
 });
