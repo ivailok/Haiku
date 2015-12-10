@@ -86,7 +86,13 @@ namespace Haiku.Services
             return data.Select(h => Mapper.MapHaikuEntityToHaikuGetDto(h));
         }
 
-        public async Task RateAsync(int id, HaikuRateDto dto)
+        public async Task<HaikuGetDto> GetHaikuAsync(int haikuId)
+        {
+            var haiku = await this.unitOfWork.HaikusRepository.GetByIdAsync(haikuId).ConfigureAwait(false);
+            return Mapper.MapHaikuEntityToHaikuGetDto(haiku);
+        }
+
+        public async Task<HaikuRatedDto> RateAsync(int id, HaikuRatingDto dto)
         {
             var haiku = await this.unitOfWork.HaikusRepository.GetByIdAsync(id).ConfigureAwait(false);
             var rating = Mapper.MapHaikuRateDtoToHaikuRating(dto);
@@ -112,6 +118,10 @@ namespace Haiku.Services
             user.Rating = user.HaikusRatingSum / user.HaikusCount;
 
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);
+            return new HaikuRatedDto()
+            {
+                HaikuRating = haiku.Rating.Value
+            };
         }
 
         public async Task SendReport(int id, HaikuReportingDto dto)

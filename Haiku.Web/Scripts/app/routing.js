@@ -12,6 +12,10 @@
             controller: 'UserController',
             templateUrl: '/Scripts/app/views/user.html'
         })
+        .when('/haikus/:id', {
+            controller: 'HaikuController',
+            templateUrl: '/Scripts/app/views/haikuDetails.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

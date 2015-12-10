@@ -35,12 +35,20 @@ namespace Haiku.Web.ApiControllers
             return Ok(paging);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            var haiku = await this.haikusService.GetHaikuAsync(id).ConfigureAwait(false);
+            return Ok(haiku);
+        }
+
         [HttpPost]
         [Route("{id}/ratings")]
-        public async Task<IHttpActionResult> Rate(int id, [FromBody]HaikuRateDto dto)
+        public async Task<IHttpActionResult> Rate(int id, [FromBody]HaikuRatingDto dto)
         {
-            await this.haikusService.RateAsync(id, dto).ConfigureAwait(false);
-            return CreatedWithoutLocationAndContent();
+            var data = await this.haikusService.RateAsync(id, dto).ConfigureAwait(false);
+            return CreatedWithoutLocation(data);
         }
 
         [HttpPost]

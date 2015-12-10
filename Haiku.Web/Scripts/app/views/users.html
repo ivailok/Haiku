@@ -17,7 +17,7 @@
         <span>
             <a ng-click="selectUser($index)">{{ user.nickname }}</a>
             <span style="float: right">
-                {{ user.rating }}
+                {{ user.rating | number : 2 }}
                 <uib-rating style="float: right; margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
             </span>
         </span>

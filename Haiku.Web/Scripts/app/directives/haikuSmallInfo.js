@@ -1,8 +1,13 @@
 ﻿app.directive("haikuSmallInfo", function () {
-    var controller = ['$scope', '$location', function ($scope, $location) {
+    var controller = ['$scope', '$location', 'HaikusService', function ($scope, $location, haikusService) {
         $scope.selectUser = function (nickname) {
             $location.path("/users/" + nickname);
         };
+
+        $scope.selectHaiku = function (haiku) {
+            haikusService.saveChosenHaiku(haiku);
+            $location.path("/haikus/" + haiku.id);
+        }
     }];
 
     return {

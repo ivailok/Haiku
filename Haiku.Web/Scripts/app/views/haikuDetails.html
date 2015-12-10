@@ -1,0 +1,20 @@
+﻿<textarea disabled style="resize: none; max-width: inherit; width: inherit" auto-height>{{ haiku.text }}</textarea>
+<span>
+    <a ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
+    <span style="float: right">
+        {{ haiku.rating | number : 2 }}
+        <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
+    </span>
+</span>
+
+<div style="height: 75px" class="divider"></div>
+
+<div style="font-size: 20px;">
+    <div>
+        My rating:
+        {{ myRating }}
+    </div>
+    <uib-rating ng-model="myRating" max="5"></uib-rating>
+</div>
+
+<button style="float: right;" ng-click="report()">Report!</button>

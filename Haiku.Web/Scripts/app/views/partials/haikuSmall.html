@@ -1,12 +1,13 @@
 ﻿<div style="max-width: inherit; width: inherit">
     <textarea disabled style="resize: none; overflow: hidden; height: 100px; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
+    <button style="float: right;" ng-click="selectHaiku(haiku)">View</button>
 </div>
 <span>
     <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
     <span style="float: right">
-        {{ haiku.rating }}
+        {{ haiku.rating | number : 2 }}
         <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
     </span>
 </span>
 
-<div style="height: 50px" class="divider"></div>
+<div style="height: 75px" class="divider"></div>

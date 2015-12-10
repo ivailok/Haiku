@@ -54,7 +54,7 @@ namespace Haiku.Services
             };
         }
 
-        public static HaikuRating MapHaikuRateDtoToHaikuRating(HaikuRateDto dto)
+        public static HaikuRating MapHaikuRateDtoToHaikuRating(HaikuRatingDto dto)
         {
             return new HaikuRating()
             {

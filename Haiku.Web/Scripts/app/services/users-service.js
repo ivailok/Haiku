@@ -1,5 +1,7 @@
 ﻿app.factory("UsersService", ['$http', function ($http) {
-    var chosenUser;
+    this.chosenUser = undefined;
+
+    var self = this;
 
     var service = {
         getUsers: function (sortBy, orderBy, skip, take) {
@@ -21,10 +23,10 @@
                 });
         },
         saveChosenUser: function (user) {
-            chosenUser = user;
+            self.chosenUser = user;
         },
         getChosenUser: function () {
-            return chosenUser;
+            return self.chosenUser;
         }
     };
 
