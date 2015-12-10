@@ -25,8 +25,14 @@ namespace Haiku.Web.ApiControllers
         [Route("")]
         public async Task<IHttpActionResult> GetAll([FromUri]HaikusGetQueryParams queryParams)
         {
-            var data = await this.haikusService.GetHaikusAsync(queryParams).ConfigureAwait(false);
-            return Ok(data);
+            var metadata = this.haikusService.GetHaikusPagingMetadata();
+            var haikus = await this.haikusService.GetHaikusAsync(queryParams).ConfigureAwait(false);
+            var paging = new PagingDto<HaikuGetDto>()
+            {
+                Metadata = metadata,
+                Results = haikus
+            };
+            return Ok(paging);
         }
 
         [HttpPost]

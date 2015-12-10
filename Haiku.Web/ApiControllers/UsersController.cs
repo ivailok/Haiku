@@ -69,8 +69,14 @@ namespace Haiku.Web.ApiControllers
         [Route("")]
         public async Task<IHttpActionResult> GetAll([FromUri]UsersGetQueryParams queryParams)
         {
+            var metadata = this.usersService.GetUsersPagingMetadata();
             var users = await this.usersService.GetUsersAsync(queryParams).ConfigureAwait(false);
-            return Ok(users);
+            var paging = new PagingDto<UserGetDto>()
+            {
+                Metadata = metadata,
+                Results = users
+            };
+            return Ok(paging);
         }
 
         [HttpGet]

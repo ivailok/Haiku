@@ -24,17 +24,19 @@
     $scope.itemsPerPage = 20;
     $scope.currentPage = 1;
     $scope.visiblePages = 5;
-    $scope.lastKnownItems = $scope.visiblePages * $scope.itemsPerPage;
+    $scope.lastKnownItems = 0;
 
-    haikusService.getHaikus($scope.sortOptions[0].name, $scope.orderOptions[0].name, 0, $scope.itemsPerPage)
-        .then(function (data) {
-            $scope.haikus = data;
-        });
+    sendQuery();
 
     $scope.pageChanged = function () {
+        sendQuery();
+    };
+
+    function sendQuery () {
         haikusService.getHaikus($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
             .then(function (data) {
-                $scope.haikus = data;
+                $scope.lastKnownItems = data.metadata.totalCount;
+                $scope.haikus = data.results;
             });
     };
 }]);

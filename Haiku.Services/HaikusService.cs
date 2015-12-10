@@ -45,6 +45,13 @@ namespace Haiku.Services
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
 
+        public PagingMetadata GetHaikusPagingMetadata()
+        {
+            PagingMetadata metadata = new PagingMetadata();
+            metadata.TotalCount = this.unitOfWork.HaikusRepository.Query().Count();
+            return metadata;
+        }
+
         public async Task<IEnumerable<HaikuGetDto>> GetHaikusAsync(HaikusGetQueryParams queryParams)
         {
             var preQuery = this.unitOfWork.HaikusRepository.QueryInclude(h => h.User);

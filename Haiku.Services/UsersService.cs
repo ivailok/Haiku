@@ -85,6 +85,13 @@ namespace Haiku.Services
             return published;
         }
 
+        public PagingMetadata GetUsersPagingMetadata()
+        {
+            PagingMetadata metadata = new PagingMetadata();
+            metadata.TotalCount = this.unitOfWork.UsersRepository.Query().Count();
+            return metadata;
+        }
+
         public async Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams)
         {
             // exclude administrators

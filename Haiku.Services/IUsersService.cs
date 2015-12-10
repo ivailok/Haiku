@@ -18,6 +18,8 @@ namespace Haiku.Services
         
         Task<HaikuPublishedDto> PublishHaikuAsync(string nickname, HaikuPublishingDto dto);
 
+        PagingMetadata GetUsersPagingMetadata();
+        
         Task<IEnumerable<UserGetDto>> GetUsersAsync(UsersGetQueryParams queryParams);
 
         Task<UserGetDto> GetUserAsync(string nickname);
