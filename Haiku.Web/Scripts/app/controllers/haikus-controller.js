@@ -26,9 +26,10 @@
     $scope.visiblePages = 5;
     $scope.lastKnownItems = 0;
 
+    // initialize
     sendQuery();
 
-    $scope.pageChanged = function () {
+    $scope.sendQuery = function () {
         sendQuery();
     };
 

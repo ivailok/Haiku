@@ -2,12 +2,12 @@
     <span>
         <span>
             Sort by:
-            <select ng-model="selectedSortOption" ng-options="opt.name for opt in sortOptions"></select>
+            <select ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
         </span>
 
         <span>
             Order by:
-            <select ng-model="selectedOrderOption" ng-options="opt.name for opt in orderOptions"></select>
+            <select ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
         </span>
     </span>
 
@@ -25,5 +25,5 @@
         <div style="height: 50px" class="divider"></div>
     </div>
 
-    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="sendQuery()"></uib-pagination>
 </div>

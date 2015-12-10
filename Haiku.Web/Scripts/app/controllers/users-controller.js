@@ -29,7 +29,7 @@
     // initialize
     sendQuery();
 
-    $scope.pageChanged = function () {
+    $scope.sendQuery = function () {
         sendQuery();
     };
 

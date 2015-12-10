@@ -1,0 +1,11 @@
+﻿<div style="max-width: inherit; width: inherit">
+    <textarea disabled style="resize: none; overflow: hidden; height: 100px; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
+</div>
+<span>
+    <span style="float: right">
+        {{ haiku.rating }}
+        <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
+    </span>
+</span>
+
+<div style="height: 50px" class="divider"></div>

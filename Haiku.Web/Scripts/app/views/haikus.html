@@ -2,31 +2,19 @@
     <span>
         <span>
             Sort by: 
-            <select ng-model="selectedSortOption" ng-options="opt.name for opt in sortOptions"></select>
+            <select ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
         </span>
 
         <span>
             Order by:
-            <select ng-model="selectedOrderOption" ng-options="opt.name for opt in orderOptions"></select>
+            <select ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
         </span>
     </span>
 
     <hr />
-    
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in haikus">
-        <div style="max-width: inherit; width: inherit">
-            <textarea disabled style="resize: none; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
-        </div>
-        <span>
-            {{ haiku.author }}
-            <span style="float: right">
-                {{ haiku.rating }}
-                <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
-            </span>
-        </span>
-        
-        <div style="height: 50px" class="divider"></div>
+        <haiku-info style="max-width: inherit; width: inherit" haiku="haiku"></haiku-info>
     </div>
 
-    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="sendQuery()"></uib-pagination>
 </div>
