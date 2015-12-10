@@ -1,5 +1,5 @@
 ﻿app.factory("UsersService", ['$http', function ($http) {
-    var chosenUser = {};
+    var chosenUser;
 
     var service = {
         getUsers: function (sortBy, orderBy, skip, take) {

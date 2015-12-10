@@ -13,7 +13,7 @@
 
     <hr />
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in haikus">
-        <haiku-info style="max-width: inherit; width: inherit" haiku="haiku"></haiku-info>
+        <haiku-info style="max-width: inherit; width: inherit" haiku="haiku" show-author="true"></haiku-info>
     </div>
 
     <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="sendQuery()"></uib-pagination>

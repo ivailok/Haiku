@@ -2,6 +2,7 @@
     <textarea disabled style="resize: none; overflow: hidden; height: 100px; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
 </div>
 <span>
+    <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
     <span style="float: right">
         {{ haiku.rating }}
         <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
