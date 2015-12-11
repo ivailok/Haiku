@@ -15,6 +15,7 @@
 /// <reference path="app/directives/haikusmallinfo.js" />
 /// <reference path="app/routing.js" />
 /// <reference path="app/services/haikus-service.js" />
+/// <reference path="app/services/http-service.js" />
 /// <reference path="app/services/users-service.js" />
 /// <reference path="bootstrap.min.js" />
 /// <reference path="jquery.validate.js" />

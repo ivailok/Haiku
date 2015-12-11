@@ -194,6 +194,7 @@
     <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
     <Content Include="Scripts\app\routing.js" />
     <Content Include="Scripts\app\services\haikus-service.js" />
+    <Content Include="Scripts\app\services\http-service.js" />
     <Content Include="Scripts\app\services\users-service.js" />
     <Content Include="Scripts\app\views\haikus.html" />
     <Content Include="Scripts\app\views\haikuDetails.html" />
