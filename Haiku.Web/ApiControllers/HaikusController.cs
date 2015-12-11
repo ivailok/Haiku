@@ -27,6 +27,12 @@ namespace Haiku.Web.ApiControllers
         {
             var metadata = this.haikusService.GetHaikusPagingMetadata();
             var haikus = await this.haikusService.GetHaikusAsync(queryParams).ConfigureAwait(false);
+
+            if (queryParams.Skip >= metadata.TotalCount)
+            {
+                return BadRequest("Requesting data that do not exist. Check your skip parameter.");
+            }
+
             var paging = new PagingDto<HaikuGetDto>()
             {
                 Metadata = metadata,

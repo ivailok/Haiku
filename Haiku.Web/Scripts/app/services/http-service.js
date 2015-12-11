@@ -5,8 +5,8 @@
     {
         return fn.then(function (response) {
             return response.data;
-        }, function (error) {
-            alert(error.message);
+        }, function (errorResponse) {
+            alert(errorResponse.data.message);
         });
     }
 

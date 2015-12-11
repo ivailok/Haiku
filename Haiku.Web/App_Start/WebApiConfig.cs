@@ -9,6 +9,7 @@ using System.Reflection;
 using Haiku.Services;
 using Haiku.Data;
 using Haiku.Data.Entities;
+using Newtonsoft.Json.Serialization;
 
 namespace Haiku.Web
 {
@@ -20,8 +21,17 @@ namespace Haiku.Web
             config.Filters.Add(new ExceptionAttribute());
             config.Filters.Add(new ValidationAttribute());
 
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            // all routes with ~/api should be resolved by web api 
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
 #if DEBUG
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;

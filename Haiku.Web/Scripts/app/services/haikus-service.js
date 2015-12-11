@@ -1,41 +1,21 @@
-﻿app.factory('HaikusService', ['$http', function ($http) {
+﻿app.factory('HaikusService', ['HttpService', function (httpService) {
     var self = this;
 
     var service = {
         getHaikus: function (sortBy, orderBy, skip, take) {
-            return $http.get(serverUrl + "haikus?sortBy=" + sortBy + "&order=" + orderBy + "&skip=" + skip + "&take=" + take)
-                .then(function (result) {
-                    return result.data;
-                }, function (error) {
-                    alert("Error: no data returned");
-                });
+            return httpService.get("haikus?sortBy=" + sortBy + "&order=" + orderBy + "&skip=" + skip + "&take=" + take);
         },
 
         getHaiku: function (id) {
-            return $http.get(serverUrl + "haikus/" + id)
-                .then(function (result) {
-                    return result.data;
-                }, function (error) {
-                    alert("Error: no data returned");
-                });
+            return httpService.get("haikus/" + id);
         },
 
         rateHaiku: function (id, data) {
-            return $http.post(serverUrl + "haikus/" + id + "/ratings", data)
-                .then(function (result) {
-                    return result.data;
-                }, function (error) {
-                    alert("Error: no data returned");
-                });
+            return httpService.post("haikus/" + id + "/ratings", data);
         },
 
         sendReport: function (id, data) {
-            return $http.post(serverUrl + "haikus/" + id + "/reports", data)
-                .then(function (result) {
-                    return result.data;
-                }, function (error) {
-                    alert("Error: no data returned");
-                });
+            return httpService.post("haikus/" + id + "/reports", data);
         },
 
         saveChosenHaiku: function (haiku) {
