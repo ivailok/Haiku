@@ -16,6 +16,14 @@
             controller: 'HaikuController',
             templateUrl: '/Scripts/app/views/haikuDetails.html'
         })
+        .when('/write', {
+            controller: 'HaikuWriteController',
+            templateUrl: '/Scripts/app/views/haikuWrite.html'
+        })
+        .when('/register', {
+            controller: 'UserRegisterController',
+            templateUrl: '/Scripts/app/views/userRegister.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

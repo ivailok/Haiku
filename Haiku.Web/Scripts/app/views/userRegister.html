@@ -1,0 +1,13 @@
+﻿<div ng-hide="isRegistered">
+    <label for="nickname">Nickname:</label>
+    <input id="nickname" type="text" ng-model="nickname" />
+
+    <label for="publishCode">Publish code:</label>
+    <input id="publishCode" type="password" ng-model="publishCode" />
+
+    <button ng-click="register()">Register</button>
+</div>
+
+<div ng-show="isRegistered">
+    You are now an author! Use this power carefully.
+</div>

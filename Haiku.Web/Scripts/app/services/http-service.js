@@ -1,34 +1,40 @@
 ﻿app.factory("HttpService", ['$http', function ($http) {
     var serverUrl = "http://localhost:2950/api/";
     
-    function attachThenBehaviour (fn)
+    function request (method, url, headers, data)
     {
-        return fn.then(function (response) {
-            return response.data;
-        }, function (errorResponse) {
-            alert(errorResponse.data.message);
-        });
+        if (headers === undefined || headers === null) {
+            headers = {};
+        }
+
+        headers['Content-Type'] = 'application/json';
+        headers['Accept'] = 'application/json';
+
+        var req = {
+            method: method,
+            url: serverUrl + url,
+            headers: headers,
+            data: data
+        };
+
+        return $http(req);
     }
 
     var service = {
-        post: function (resourceUrl, data) {
-            var fn = $http.post(serverUrl + resourceUrl, data);
-            return attachThenBehaviour(fn);
+        post: function (resourceUrl, headers, data) {
+            return request('Post', resourceUrl, headers, data);
         },
 
         get: function (resourceUrl) {
-            var fn = $http.get(serverUrl + resourceUrl);
-            return attachThenBehaviour(fn);
+            return request('Get', resourceUrl);
         },
 
         put: function (resourseUrl, data) {
-            var fn = $http.put(serverUrl + resourseUrl, data);
-            return attachThenBehaviour(fn);
+            return request('Put', resourseUrl);
         },
 
         delete: function (resourseUrl) {
-            var fn = $http.delete(serverUrl + resourseUrl);
-            return attachThenBehaviour(fn);
+            return request('Delete', resourseUrl);
         }
     };
 

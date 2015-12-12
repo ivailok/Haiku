@@ -1,0 +1,13 @@
+﻿<div ng-hide="isPublished">
+    Hi, {{ nickname }}. Enter your haiku:
+
+    <textarea ng-model="text"></textarea>
+
+    <label for="publishCode">Secret token:</label>
+    <input id="publishCode" type="password" ng-model="publishCode" />
+
+    <button ng-click="publish()">Publish</button>
+</div>
+<div ng-show="isPublished">
+    Gosho, you have published your haiku.
+</div>

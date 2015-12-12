@@ -35,9 +35,9 @@
 
     function sendQuery () {
         haikusService.getHaikus($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
-            .then(function (data) {
-                $scope.lastKnownItems = data.metadata.totalCount;
-                $scope.haikus = data.results;
+            .then(function (httpResponse) {
+                $scope.lastKnownItems = httpResponse.data.metadata.totalCount;
+                $scope.haikus = httpResponse.data.results;
             });
     };
 }]);

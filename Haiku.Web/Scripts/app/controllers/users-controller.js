@@ -40,9 +40,9 @@
 
     function sendQuery () {
         usersService.getUsers($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
-            .then(function (data) {
-                $scope.lastKnownItems = data.metadata.totalCount;
-                $scope.users = data.results;
+            .then(function (httpResponse) {
+                $scope.lastKnownItems = httpResponse.data.metadata.totalCount;
+                $scope.users = httpResponse.data.results;
             });
     };
 }]);

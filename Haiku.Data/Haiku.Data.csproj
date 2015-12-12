@@ -101,6 +101,14 @@
     <Compile Include="Migrations\201512071957527_IX_User_AccessToken.Designer.cs">
       <DependentUpon>201512071957527_IX_User_AccessToken.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512120008248_Change_User_AccessToken_Length_To_512.cs" />
+    <Compile Include="Migrations\201512120008248_Change_User_AccessToken_Length_To_512.Designer.cs">
+      <DependentUpon>201512120008248_Change_User_AccessToken_Length_To_512.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512120025407_Change_User_AccessToken_Length_To_128.cs" />
+    <Compile Include="Migrations\201512120025407_Change_User_AccessToken_Length_To_128.Designer.cs">
+      <DependentUpon>201512120025407_Change_User_AccessToken_Length_To_128.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entities\TEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512071957527_IX_User_AccessToken.resx">
       <DependentUpon>201512071957527_IX_User_AccessToken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512120008248_Change_User_AccessToken_Length_To_512.resx">
+      <DependentUpon>201512120008248_Change_User_AccessToken_Length_To_512.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512120025407_Change_User_AccessToken_Length_To_128.resx">
+      <DependentUpon>201512120025407_Change_User_AccessToken_Length_To_128.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

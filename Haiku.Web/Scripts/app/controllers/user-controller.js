@@ -3,8 +3,8 @@
 
     if ($scope.user == undefined) {
         usersService.getUser($routeParams.nickname)
-            .then(function (data) {
-                $scope.user = data;
+            .then(function (httpResponse) {
+                $scope.user = httpResponse.data;
             });
     }
 }]);

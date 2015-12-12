@@ -3,8 +3,8 @@
 
     if ($scope.haiku === undefined) {
         haikusService.getHaiku($routeParams.id)
-            .then(function (data) {
-                $scope.haiku = data;
+            .then(function (httpResponse) {
+                $scope.haiku = httpResponse.data;
             });
     }
 
@@ -19,8 +19,8 @@
             rating: newValue,
         };
         haikusService.rateHaiku($scope.haiku.id, data)
-            .then(function (data) {
-                $scope.haiku.rating = data.haikuRating;
+            .then(function (httpResponse) {
+                $scope.haiku.rating = httpResponse.data.haikuRating;
             });
     });
 

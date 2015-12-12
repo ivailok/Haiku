@@ -2,19 +2,14 @@
     ViewBag.Title = "Haiku";
 }
 
-<div class="collapse navbar-collapse" ng-controller="HeaderController">
-    <ul class="nav navbar-nav">
-        <li ng-class="{ active: isActive('/')}"><a href="/">Haikus</a></li>
-        <li ng-class="{ active: isActive('/users')}"><a href="/users">Users</a></li>
-    </ul>
-</div>
-<hr class="divider"/>
 <div class="container" ng-view></div>
 
 @section scripts {
     @Scripts.Render("~/Scripts/angular.js")
     @Scripts.Render("~/Scripts/angular-route.js")
+    @Scripts.Render("~/Scripts/angular-cookies.js")
     @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+    @Scripts.Render("~/Scripts/sha3.js")
 
     @Scripts.Render("~/Scripts/app/app.js")
 
@@ -25,12 +20,14 @@
     @Scripts.Render("~/Scripts/app/directives/haikuSmallInfo.js")
     @Scripts.Render("~/Scripts/app/directives/autoHeight.js")
     
-    @Scripts.Render("~/Scripts/app/controllers/header-controller.js")
+    @Scripts.Render("~/Scripts/app/controllers/side-bar-controller.js")
     @Scripts.Render("~/Scripts/app/controllers/report-controller.js")
     @Scripts.Render("~/Scripts/app/controllers/haikus-controller.js")
     @Scripts.Render("~/Scripts/app/controllers/haiku-controller.js")
     @Scripts.Render("~/Scripts/app/controllers/users-controller.js")
     @Scripts.Render("~/Scripts/app/controllers/user-controller.js")
+    @Scripts.Render("~/Scripts/app/controllers/haiku-write-controller.js")
+    @Scripts.Render("~/Scripts/app/controllers/user-register-controller.js")
     
     @Scripts.Render("~/Scripts/app/routing.js")
 }

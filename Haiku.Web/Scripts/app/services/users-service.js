@@ -7,9 +7,15 @@
         getUsers: function (sortBy, orderBy, skip, take) {
             return httpService.get("users?sortBy=" + sortBy + "&order=" + orderBy + "&skip=" + skip + "&take=" + take);
         },
+
         getUser: function (nickname) {
             return httpService.get("users/" + nickname);
         },
+
+        registerAuthor: function (data) {
+            return httpService.post("users", null, data);
+        },
+
         saveChosenUser: function (user) {
             self.chosenUser = user;
         },
