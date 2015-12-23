@@ -33,8 +33,8 @@
             return request('Put', resourseUrl);
         },
 
-        delete: function (resourseUrl) {
-            return request('Delete', resourseUrl);
+        delete: function (resourseUrl, headers) {
+            return request('Delete', resourseUrl, headers);
         }
     };
 

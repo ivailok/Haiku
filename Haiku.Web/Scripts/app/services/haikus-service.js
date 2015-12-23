@@ -11,15 +11,19 @@
         },
 
         rateHaiku: function (id, data) {
-            return httpService.post("haikus/" + id + "/ratings", {}, data);
+            return httpService.post("haikus/" + id + "/ratings", null, data);
         },
 
         sendReport: function (id, data) {
-            return httpService.post("haikus/" + id + "/reports", {}, data);
+            return httpService.post("haikus/" + id + "/reports", null, data);
         },
 
         publishHaiku: function (nickname, publishCode, data) {
             return httpService.post("users/" + nickname + "/haikus", { 'PublishCode': publishCode }, data);
+        },
+
+        deleteHaiku: function (nickname, id, publishCode) {
+            return httpService.delete("users/" + nickname + "/haikus/" + id, { 'PublishCode': publishCode });
         },
 
         saveChosenHaiku: function (haiku) {

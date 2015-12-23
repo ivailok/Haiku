@@ -33,6 +33,10 @@
         sendQuery();
     };
 
+    $scope.removeHaiku = function (index) {
+        $scope.haikus.splice(index, 1);
+    }
+
     function sendQuery () {
         haikusService.getHaikus($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
             .then(function (httpResponse) {

@@ -6,6 +6,7 @@
 /// <reference path="angular-ui/ui-bootstrap.min.js" />
 /// <reference path="angular-ui/ui-bootstrap-tpls.min.js" />
 /// <reference path="app/app.js" />
+/// <reference path="app/controllers/authorize-controller.js" />
 /// <reference path="app/controllers/haiku-controller.js" />
 /// <reference path="app/controllers/haikus-controller.js" />
 /// <reference path="app/controllers/haiku-write-controller.js" />

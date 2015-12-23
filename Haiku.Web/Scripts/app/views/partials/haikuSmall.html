@@ -1,6 +1,7 @@
 ﻿<div style="max-width: inherit; width: inherit">
     <textarea disabled style="resize: none; overflow: hidden; height: 100px; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
     <button style="float: right;" ng-click="selectHaiku(haiku)">View</button>
+    <button style="float: right;" ng-click="deleteHaiku()">Delete</button>
 </div>
 <span>
     <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
