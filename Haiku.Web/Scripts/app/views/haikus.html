@@ -2,16 +2,17 @@
     <span>
         <span>
             Sort by: 
-            <select ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
+            <select select-picker data-style="btn-primary" ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
         </span>
 
         <span>
             Order by:
-            <select ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
+            <select select-picker data-style="btn-primary" ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
         </span>
     </span>
 
     <hr />
+    
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in haikus">
         <haiku-small-info style="max-width: inherit; width: inherit" haiku="haiku" show-author="true", on-delete="removeHaiku($index)"></haiku-small-info>
     </div>
