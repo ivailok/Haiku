@@ -176,7 +176,6 @@
     <Content Include="Content\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.5.0\HELP-US-OUT.txt" />
-    <Content Include="Content\scrolling-nav.css" />
     <Content Include="Content\Styles\haikus.css">
       <DependentUpon>haikus.less</DependentUpon>
     </Content>
@@ -221,7 +220,6 @@
     <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
     <Content Include="Scripts\app\directives\selectPicker.js" />
     <Content Include="Scripts\app\routing.js" />
-    <Content Include="Scripts\app\scrolling-nav.js" />
     <Content Include="Scripts\app\services\haikus-service.js" />
     <Content Include="Scripts\app\services\http-service.js" />
     <Content Include="Scripts\app\services\users-service.js" />

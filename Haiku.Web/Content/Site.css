@@ -27,7 +27,12 @@ body header .phrase h1 {
 }
 
 body .navigation {
-    position: absolute;
+    position: fixed;
+}
+
+body .footer {
+    text-align: center;
+    vertical-align: bottom;
 }
 
 /* Set padding to keep content from hitting the edges */
