@@ -18,4 +18,9 @@
                 $scope.isPublished = true;
             })
     };
+
+    $scope.writeAnother = function () {
+        $scope.text = '';
+        $scope.isPublished = false;
+    };
 }]);

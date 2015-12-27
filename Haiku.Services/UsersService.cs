@@ -143,6 +143,9 @@ namespace Haiku.Services
             {
                 await this.haikusService.DeleteHaikuNFAsync(id).ConfigureAwait(false);
             }
+            user.Rating = null;
+            user.HaikusRatingSum = 0.0;
+            user.HaikusCount = 0;
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);
         }
 

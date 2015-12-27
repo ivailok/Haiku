@@ -10,6 +10,7 @@
         }
 
         $scope.deleteHaiku = function () {
+            $scope.authorizeType = 'DeleteSingleHaiku'
             $uibModal.open({
                 templateUrl: '/Scripts/app/views/partials/authorizeForm.html',
                 controller: 'AuthorizeController',

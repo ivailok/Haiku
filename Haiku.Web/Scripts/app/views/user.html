@@ -3,13 +3,14 @@
         {{ user.nickname }}
         <span style="float: right">
             {{ user.rating | number : 2 }}
-            <uib-rating style="float: right; margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
+            <uib-rating style="margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
+            <button ng-click="deleteAllHaikus()">Delete all</button>
         </span>
     </span>
 
     <hr />
 
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in user.haikus">
-        <haiku-small-info style="max-width: inherit; width: inherit" haiku="haiku" show-author="false"></haiku-small-info>
+        <haiku-small-info style="max-width: inherit; width: inherit" haiku="haiku" show-author="false" on-delete="removeHaiku($index)"></haiku-small-info>
     </div>
 </div>

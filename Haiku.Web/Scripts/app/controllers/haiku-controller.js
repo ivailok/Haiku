@@ -1,4 +1,5 @@
-﻿app.controller("HaikuController", ['$scope', '$routeParams', '$location', '$uibModal', 'HaikusService', function ($scope, $routeParams, $location, $uibModal, haikusService) {
+﻿/// <reference path="haiku-controller.js" />
+app.controller("HaikuController", ['$scope', '$routeParams', '$location', '$uibModal', 'HaikusService', 'UsersService', function ($scope, $routeParams, $location, $uibModal, haikusService, usersService) {
     $scope.haiku = haikusService.getChosenHaiku();
 
     if ($scope.haiku === undefined) {
@@ -21,6 +22,7 @@
         haikusService.rateHaiku($scope.haiku.id, data)
             .then(function (httpResponse) {
                 $scope.haiku.rating = httpResponse.data.haikuRating;
+                usersService.markForUpdate();
             });
     });
 

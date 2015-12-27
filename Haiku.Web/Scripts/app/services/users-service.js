@@ -16,11 +16,20 @@
             return httpService.post("users", null, data);
         },
 
+        deleteHaikus: function (nickname, publishCode) {
+            return httpService.delete("users/" + nickname + "/haikus", { PublishCode: publishCode });
+        },
+
         saveChosenUser: function (user) {
             self.chosenUser = user;
         },
+
         getChosenUser: function () {
             return self.chosenUser;
+        },
+
+        markForUpdate: function () {
+            self.chosenUser = undefined;
         }
     };
 
