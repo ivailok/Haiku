@@ -25,7 +25,8 @@ namespace Haiku.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome-4.5.0/css/font-awesome.min.css"));
         }
     }
 }

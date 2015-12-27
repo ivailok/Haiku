@@ -8,17 +8,37 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="background-color: lightsteelblue" ng-controller="SideBarController">
-
+<body ng-controller="SideBarController">
+    <header>
+        <div class="logo">
+            <img src="~/Content/Drawing.png" />
+        </div>
+        <div class="phrase">
+            <h1>
+                <i>Your thoughts are valued!</i>
+            </h1>
+        </div>
+    </header>
     <div style="position:absolute;">
         <ul class="nav nav-pills nav-stacked">
-            <li ng-repeat="tab in tabs"><a href="{{ tab.to }}">{{ tab.title }}</a></li>
+            <li ng-repeat="tab in tabs">
+                <a href="{{ tab.to }}">
+                    <i class="fa fa-{{ tab.img }} fa-2x" style="width: 30px; height: 30px;"></i>
+                    {{ tab.title }}
+                </a>
+            </li>
         </ul>
     </div>
 
     <div class="container body-content">
         @RenderBody()
     </div>
+
+    <footer>
+        <div>
+            Science Icons graphic by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
