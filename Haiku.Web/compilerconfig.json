@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/Styles/haikus.css",
+    "inputFile": "Content/Styles/haikus.less"
+  },
+  {
+    "outputFile": "Content/Styles/haikuSmall.css",
+    "inputFile": "Content/Styles/haikuSmall.less"
+  }
+]

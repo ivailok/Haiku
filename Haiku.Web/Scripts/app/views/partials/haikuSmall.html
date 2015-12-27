@@ -1,14 +1,16 @@
-﻿<div style="max-width: inherit; width: inherit">
-    <textarea disabled style="resize: none; overflow: hidden; height: 100px; max-width: inherit; width: inherit">{{ haiku.text }}</textarea>
-    <button style="float: right;" ng-click="selectHaiku(haiku)">View</button>
-    <button style="float: right;" ng-click="deleteHaiku()">Delete</button>
-</div>
-<span>
-    <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
-    <span style="float: right">
-        {{ haiku.rating | number : 2 }}
-        <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
+﻿<div class="haiku-small-view">
+    <div class="first-panel">
+        <textarea disabled>{{ haiku.text }}</textarea>
+        <button class="btn btn-primary side-btn" ng-click="selectHaiku(haiku)">View</button>
+        <button class="btn btn-primary side-btn" ng-click="deleteHaiku()">Delete</button>
+    </div>
+    <span class="second-panel">
+        <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
+        <span>
+            {{ haiku.rating | number : 2 }}
+            <uib-rating ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
+        </span>
     </span>
-</span>
+</div>
 
-<div style="height: 75px" class="divider"></div>
+<div class="divider"></div>

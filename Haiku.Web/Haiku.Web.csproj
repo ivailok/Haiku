@@ -176,6 +176,19 @@
     <Content Include="Content\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.5.0\HELP-US-OUT.txt" />
+    <Content Include="Content\scrolling-nav.css" />
+    <Content Include="Content\Styles\haikus.css">
+      <DependentUpon>haikus.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikus.min.css">
+      <DependentUpon>haikus.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikuSmall.css">
+      <DependentUpon>haikuSmall.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikuSmall.min.css">
+      <DependentUpon>haikuSmall.css</DependentUpon>
+    </Content>
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -208,6 +221,7 @@
     <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
     <Content Include="Scripts\app\directives\selectPicker.js" />
     <Content Include="Scripts\app\routing.js" />
+    <Content Include="Scripts\app\scrolling-nav.js" />
     <Content Include="Scripts\app\services\haikus-service.js" />
     <Content Include="Scripts\app\services\http-service.js" />
     <Content Include="Scripts\app\services\users-service.js" />
@@ -325,6 +339,12 @@
     <Content Include="Content\font-awesome-4.5.0\scss\_variables.scss" />
     <Content Include="Scripts\bootstrap-select.js.map" />
     <Content Include="Content\bootstrap-select.css.map" />
+    <Content Include="Content\Styles\haikus.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\Styles\haikuSmall.less" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

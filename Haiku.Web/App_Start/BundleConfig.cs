@@ -29,6 +29,10 @@ namespace Haiku.Web
                       "~/Content/bootstrap-select.css",
                       "~/Content/site.css",
                       "~/Content/font-awesome-4.5.0/css/font-awesome.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Styles").Include(
+                "~/Content/Styles/haikus.css",
+                "~/Content/Styles/haikuSmall.css"));
         }
     }
 }

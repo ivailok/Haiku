@@ -21,7 +21,7 @@
     ];
     $scope.selectedOrderOption = $scope.orderOptions[0];
 
-    $scope.itemsPerPage = 20;
+    $scope.itemsPerPage = 5;
     $scope.currentPage = 1;
     $scope.visiblePages = 5;
     $scope.lastKnownItems = 0;

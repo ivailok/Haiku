@@ -1,0 +1,13 @@
+﻿.haikus-view {
+  max-width: inherit;
+  width: inherit;
+}
+.haikus-view .haikus-container {
+  max-width: inherit;
+  width: inherit;
+  padding-top: 40px;
+}
+.haikus-view .haikus-container .haikus-container-item {
+  max-width: inherit;
+  width: inherit;
+}
