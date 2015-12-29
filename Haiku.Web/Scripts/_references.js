@@ -24,6 +24,7 @@
 /// <reference path="app/services/haikus-service.js" />
 /// <reference path="app/services/http-service.js" />
 /// <reference path="app/services/users-service.js" />
+/// <reference path="autosize.js" />
 /// <reference path="bootstrap.min.js" />
 /// <reference path="bootstrap-select.min.js" />
 /// <reference path="jquery.validate.js" />

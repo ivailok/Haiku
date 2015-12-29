@@ -1,4 +1,4 @@
-﻿<textarea disabled style="resize: none; max-width: inherit; width: inherit" auto-height>{{ haiku.text }}</textarea>
+﻿<textarea disabled style="overflow: hidden; resize: none; max-width: inherit; width: inherit" auto-height ng-model="haiku.text"></textarea>
 <span>
     <a ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
     <span style="float: right">

@@ -1,8 +1,13 @@
-﻿app.directive("autoHeight", function () {
+﻿app.directive('autoHeight', ['$timeout', function ($timeout) {
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {
-            element[0].style.height = (2 * element[0].scrollHeight < 30) ? 30 + "px" : 2 * element[0].scrollHeight + "px";
+        link: function ($scope, element) {
+            $scope.initialHeight = $scope.initialHeight || element[0].style.height;
+            var resize = function () {
+                element[0].style.height = $scope.initialHeight;
+                element[0].style.height = "" + element[0].scrollHeight + "px";
+            };
+            $timeout(resize, 0);
         }
     };
-});
+}]);
