@@ -13,10 +13,10 @@
 
     $scope.orderOptions = [
         {
-            name: 'Ascending'
+            name: 'Descending'
         },
         {
-            name: 'Descending'
+            name: 'Ascending'
         }
     ];
     $scope.selectedOrderOption = $scope.orderOptions[0];
