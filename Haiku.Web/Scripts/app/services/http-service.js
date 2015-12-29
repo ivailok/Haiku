@@ -29,8 +29,8 @@
             return request('Get', resourceUrl);
         },
 
-        put: function (resourseUrl, data) {
-            return request('Put', resourseUrl);
+        put: function (resourseUrl, headers, data) {
+            return request('Put', resourseUrl, headers, data);
         },
 
         delete: function (resourseUrl, headers) {

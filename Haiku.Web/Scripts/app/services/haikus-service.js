@@ -26,6 +26,10 @@
             return httpService.delete("users/" + nickname + "/haikus/" + id, { 'PublishCode': publishCode });
         },
 
+        modifyHaiku: function (nickname, id, publishCode, data) {
+            return httpService.put("users/" + nickname + "/haikus/" + id, { 'PublishCode': publishCode }, data);
+        },
+
         saveChosenHaiku: function (haiku) {
             self.chosenHaiku = haiku;
         },

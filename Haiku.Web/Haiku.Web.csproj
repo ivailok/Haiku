@@ -215,6 +215,7 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\authorize-controller.js" />
     <Content Include="Scripts\app\controllers\haiku-controller.js" />
+    <Content Include="Scripts\app\controllers\haiku-edit-controller.js" />
     <Content Include="Scripts\app\controllers\haiku-write-controller.js" />
     <Content Include="Scripts\app\controllers\haikus-controller.js" />
     <Content Include="Scripts\app\controllers\report-controller.js" />
@@ -233,6 +234,7 @@
     <Content Include="Scripts\app\views\haikuDetails.html" />
     <Content Include="Scripts\app\views\haikuWrite.html" />
     <Content Include="Scripts\app\views\partials\authorizeForm.html" />
+    <Content Include="Scripts\app\views\haikuEdit.html" />
     <Content Include="Scripts\app\views\partials\haikuSmall.html" />
     <Content Include="Scripts\app\views\partials\reportForm.html" />
     <Content Include="Scripts\app\views\user.html" />

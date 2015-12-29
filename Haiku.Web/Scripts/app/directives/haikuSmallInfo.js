@@ -1,6 +1,7 @@
 ﻿app.directive("haikuSmallInfo", function () {
-    var controller = ['$scope', '$location', '$uibModal', 'HaikusService', function ($scope, $location, $uibModal, haikusService) {
+    var controller = ['$scope', '$location', '$uibModal', 'HaikusService', 'UsersService', function ($scope, $location, $uibModal, haikusService, usersService) {
         $scope.selectUser = function (nickname) {
+            usersService.saveChosenUser(undefined);
             $location.path("/users/" + nickname);
         };
 
@@ -10,12 +11,17 @@
         }
 
         $scope.deleteHaiku = function () {
-            $scope.authorizeType = 'DeleteSingleHaiku'
+            $scope.authorizeType = 'DeleteSingleHaiku';
             $uibModal.open({
                 templateUrl: '/Scripts/app/views/partials/authorizeForm.html',
                 controller: 'AuthorizeController',
                 scope: $scope
             });
+        }
+
+        $scope.editHaiku = function () {
+            haikusService.saveChosenHaiku($scope.haiku);
+            $location.path("/haikus/" + $scope.haiku.id + "/edit")
         }
     }];
 

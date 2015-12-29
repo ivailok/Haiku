@@ -16,6 +16,12 @@ function ($scope, $location, $uibModalInstance, haikusService, usersService) {
                     $scope.onDelete();
                 });
         }
+        else if ($scope.authorizeType === 'EditHaiku') {
+            var data = {
+                text: $scope.haiku.text
+            };
+            haikusService.modifyHaiku($scope.haiku.author, $scope.haiku.id, hash.toString(), data);
+        }
         
         $uibModalInstance.close();
     };

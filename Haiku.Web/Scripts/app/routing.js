@@ -24,6 +24,10 @@
             controller: 'UserRegisterController',
             templateUrl: '/Scripts/app/views/userRegister.html'
         })
+        .when('/haikus/:id/edit', {
+            controller: 'HaikuEditController',
+            templateUrl: '/Scripts/app/views/haikuEdit.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
