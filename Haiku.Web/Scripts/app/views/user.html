@@ -1,16 +1,16 @@
-﻿<div style="max-width: inherit; width: inherit" class="container-fluid">
-    <span>
-        {{ user.nickname }}
-        <span style="float: right">
+﻿<div class="user-view container-fluid">
+    <span class="user-area">
+        <span class="user-nickname">{{ user.nickname }}</span>
+        <span class="user-info">
             {{ user.rating | number : 2 }}
-            <uib-rating style="margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
-            <button ng-click="deleteAllHaikus()">Delete all</button>
+            <uib-rating class="user-info-rating" ng-model="user.rating" max="5" readonly="true"></uib-rating>
+            <button class="btn btn-danger" ng-click="deleteAllHaikus()">Delete all</button>
         </span>
     </span>
 
-    <hr />
-
-    <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="haiku in user.haikus">
-        <haiku-small-info style="max-width: inherit; width: inherit" haiku="haiku" show-author="false" on-delete="removeHaiku($index)"></haiku-small-info>
+    <div class="haikus-view">
+        <div class="haikus-container container-fluid" ng-repeat="haiku in user.haikus">
+            <haiku-small-info class="haikus-container-item" haiku="haiku" show-author="false" on-delete="removeHaiku($index)"></haiku-small-info>
+        </div>
     </div>
 </div>

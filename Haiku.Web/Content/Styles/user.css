@@ -1,0 +1,13 @@
+﻿.user-view {
+  max-width: inherit;
+  width: inherit;
+}
+.user-view .user-area .user-nickname {
+  font-size: x-large;
+}
+.user-view .user-area .user-info {
+  float: right;
+}
+.user-view .user-area .user-info .user-info-rating {
+  margin-left: 20px;
+}
