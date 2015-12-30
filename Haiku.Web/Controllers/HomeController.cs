@@ -12,5 +12,11 @@ namespace Haiku.Web.Controllers
         {
             return View();
         }
+
+        [Route("manage")]
+        public ActionResult ControlPanel()
+        {
+            return View();
+        }
     }
 }
