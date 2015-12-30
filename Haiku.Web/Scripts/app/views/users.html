@@ -2,12 +2,12 @@
     <span>
         <span>
             Sort by:
-            <select ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
+            <select select-picker data-style="btn-primary" ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
         </span>
 
         <span>
             Order by:
-            <select ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
+            <select select-picker data-style="btn-primary" ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
         </span>
     </span>
 
@@ -16,7 +16,7 @@
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="user in users">
         <span>
             <a ng-click="selectUser($index)">{{ user.nickname }}</a>
-            <span style="float: right">
+            <span style="float: right" class="text-warning">
                 {{ user.rating | number : 2 }}
                 <uib-rating style="float: right; margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
             </span>

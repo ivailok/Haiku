@@ -1,7 +1,7 @@
 ﻿<div class="user-view container-fluid">
     <span class="user-area">
         <span class="user-nickname">{{ user.nickname }}</span>
-        <span class="user-info">
+        <span class="user-info text-warning">
             {{ user.rating | number : 2 }}
             <uib-rating class="user-info-rating" ng-model="user.rating" max="5" readonly="true"></uib-rating>
             <button class="btn btn-danger" ng-click="deleteAllHaikus()">Delete all</button>
