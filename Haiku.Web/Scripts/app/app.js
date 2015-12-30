@@ -1,1 +1,1 @@
-﻿var app = angular.module('HaikuApp', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'monospaced.elastic']);
+﻿var app = angular.module('HaikuApp', ['ngRoute', 'ui.bootstrap']);

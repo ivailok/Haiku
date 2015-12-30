@@ -1,8 +1,5 @@
-﻿app.controller("UserRegisterController", ['$scope', '$location', '$cookies', '$rootScope', 'UsersService', function ($scope, $location, $cookies, $rootScope, usersService) {
-    if ($cookies.get('nickname') !== undefined) {
-        $location.path('/');
-    }
-    
+﻿app.controller("UserRegisterController", ['$scope', 'UsersService', function ($scope, usersService) {
+
     $scope.isRegistered = false;
 
     $scope.register = function () {
@@ -15,14 +12,7 @@
 
         usersService.registerAuthor(data)
             .then(function (data) {
-                // this will set the expiration to 12 months
-                var now = new Date();
-                var exp = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
-                $cookies.put('nickname', $scope.nickname, { expires: exp });
-
                 $scope.isRegistered = true;
-
-                $rootScope.$broadcast('nickname', { nickname: $scope.nickname });
             }, function (error) {
                 console.log(error);
             });

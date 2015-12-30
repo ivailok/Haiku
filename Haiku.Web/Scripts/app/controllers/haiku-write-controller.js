@@ -1,9 +1,4 @@
-﻿app.controller("HaikuWriteController", ['$scope', '$location', '$cookies', 'HaikusService', function ($scope, $location, $cookies, haikusService) {
-    $scope.nickname = $cookies.get("nickname");
-    if ($scope.nickname === undefined) {
-        $location.path('/');
-    }
-
+﻿app.controller("HaikuWriteController", ['$scope', '$location', 'HaikusService', function ($scope, $location, haikusService) {
     $scope.isPublished = false;
 
     $scope.publish = function () {

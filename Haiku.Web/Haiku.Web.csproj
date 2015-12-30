@@ -207,8 +207,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-bootstrap-select.js" />
     <Content Include="Scripts\angular-bootstrap-select.min.js" />
-    <Content Include="Scripts\angular-cookies.js" />
-    <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -252,7 +250,6 @@
     <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\elastic.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.js" />
     <Content Include="Scripts\i18n\defaults-ar_AR.min.js" />
     <Content Include="Scripts\i18n\defaults-bg_BG.js" />
@@ -320,7 +317,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.woff" />
