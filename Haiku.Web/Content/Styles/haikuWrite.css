@@ -18,7 +18,8 @@
   max-width: inherit;
   height: 200px;
 }
-.haiku-write-view .form-horizontal .form-group .form-control + .form-control {
+.haiku-write-view .form-horizontal .form-group .form-control + .form-control,
+.haiku-write-view .form-horizontal .form-group .submit {
   margin-top: 30px;
 }
 .haiku-write-view .form-horizontal .form-group .form-control + .validation-requirement {

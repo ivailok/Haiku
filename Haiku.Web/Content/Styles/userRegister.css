@@ -13,7 +13,8 @@
   width: inherit;
   max-width: inherit;
 }
-.user-register-view .form-horizontal .form-group .form-control + .form-control {
+.user-register-view .form-horizontal .form-group .form-control + .form-control,
+.user-register-view .form-horizontal .form-group .submit {
   margin-top: 30px;
 }
 .user-register-view .form-horizontal .form-group .form-control + .validation-requirement {
