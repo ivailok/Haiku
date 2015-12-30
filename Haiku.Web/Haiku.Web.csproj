@@ -176,6 +176,12 @@
     <Content Include="Content\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.5.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Styles\haikuEdit.css">
+      <DependentUpon>haikuEdit.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikuEdit.min.css">
+      <DependentUpon>haikuEdit.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\haikus.css">
       <DependentUpon>haikus.less</DependentUpon>
     </Content>
@@ -355,6 +361,7 @@
     </None>
     <Content Include="Content\Styles\haikuSmall.less" />
     <Content Include="Content\Styles\user.less" />
+    <Content Include="Content\Styles\haikuEdit.less" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

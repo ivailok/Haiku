@@ -1,5 +1,9 @@
-﻿<div>
-    <textarea style="resize: none; overflow: hidden" ng-model="haiku.text" msd-elastic></textarea>
-    <button class="btn btn-primary" ng-click="save()">Save</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+﻿<div class="haiku-edit-view" ng-if="dataLoaded">
+    <textarea class="test-edit" auto-height ng-model="haiku.text"></textarea>
+    <span>
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </span>
+
+    <uib-alert type="success" ng-show="edited" close="closeAlert()" dismiss-on-timeout="5000">Successfully edited!</uib-alert>
 </div>

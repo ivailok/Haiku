@@ -33,7 +33,8 @@ namespace Haiku.Web
             bundles.Add(new StyleBundle("~/Content/Styles").Include(
                 "~/Content/Styles/haikus.css",
                 "~/Content/Styles/haikuSmall.css",
-                "~/Content/Styles/user.css"));
+                "~/Content/Styles/user.css",
+                "~/Content/Styles/haikuEdit.css"));
         }
     }
 }

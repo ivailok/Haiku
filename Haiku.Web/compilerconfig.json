@@ -14,5 +14,9 @@
   {
     "outputFile": "Scripts/jquery.elastic.source.es5.js",
     "inputFile": "Scripts/jquery.elastic.source.js"
+  },
+  {
+    "outputFile": "Content/Styles/haikuEdit.css",
+    "inputFile": "Content/Styles/haikuEdit.less"
   }
 ]

@@ -20,7 +20,10 @@ function ($scope, $location, $uibModalInstance, haikusService, usersService) {
             var data = {
                 text: $scope.haiku.text
             };
-            haikusService.modifyHaiku($scope.haiku.author, $scope.haiku.id, hash.toString(), data);
+            haikusService.modifyHaiku($scope.haiku.author, $scope.haiku.id, hash.toString(), data)
+                .then(function (httpResponse) {
+                    $scope.onModified();
+                });
         }
         
         $uibModalInstance.close();
