@@ -9,23 +9,6 @@ app.controller("HaikuController", ['$scope', '$routeParams', '$location', '$uibM
             });
     }
 
-    $scope.myRating = 0;
-
-    $scope.$watch('myRating', function (newValue, oldValue) {
-        if (newValue === oldValue) {
-            return;
-        }
-
-        var data = {
-            rating: newValue,
-        };
-        haikusService.rateHaiku($scope.haiku.id, data)
-            .then(function (httpResponse) {
-                $scope.haiku.rating = httpResponse.data.haikuRating;
-                usersService.markForUpdate();
-            });
-    });
-
     $scope.selectUser = function (nickname) {
         $location.path("/users/" + nickname);
     };
@@ -36,9 +19,26 @@ app.controller("HaikuController", ['$scope', '$routeParams', '$location', '$uibM
             controller: 'ReportController',
             resolve: {
                 id: function () {
-                    return $scope.haiku.id
+                    return $scope.haiku.id;
                 }
             }
+        });
+    };
+
+    $scope.rate = function () {
+        var modalInstance = $uibModal.open({
+            templateUrl: '/Scripts/app/views/partials/rateForm.html',
+            controller: 'RateController',
+            resolve: {
+                id: function () {
+                    return $scope.haiku.id;
+                }
+            }
+        })
+
+        modalInstance.result.then(function (haikuRating) {
+            $scope.haiku.rating = haikuRating;
+            usersService.markForUpdate();
         });
     };
 }]);

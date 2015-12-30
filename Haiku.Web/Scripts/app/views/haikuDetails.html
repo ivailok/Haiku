@@ -1,20 +1,14 @@
-﻿<textarea disabled style="overflow: hidden; resize: none; max-width: inherit; width: inherit" auto-height ng-model="haiku.text"></textarea>
-<span>
-    <a ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
-    <span style="float: right">
-        {{ haiku.rating | number : 2 }}
-        <uib-rating style="float: right; margin-left: 20px;" ng-model="haiku.rating" max="5" readonly="true"></uib-rating>
-    </span>
-</span>
-
-<div style="height: 75px" class="divider"></div>
-
-<div style="font-size: 20px;">
-    <div>
-        My rating:
-        {{ myRating }}
+﻿<div class="haiku-details-view">
+    <div class="first-panel">
+        <textarea disabled ng-model="haiku.text" auto-height></textarea>
+        <button class="btn btn-danger side-btn" ng-click="report()">Report</button>
+        <button class="btn btn-info side-btn" ng-click="rate()">Rate</button>
     </div>
-    <uib-rating ng-model="myRating" max="5"></uib-rating>
+    <span class="second-panel">
+        <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
+        <span class="text-warning">
+            <span class="rating-stars"><uib-rating ng-model="haiku.rating" max="5" readonly="true"></uib-rating></span>
+            <span class="rating-numeric">{{ haiku.rating | number : 2 }}</span>
+        </span>
+    </span>
 </div>
-
-<button style="float: right;" ng-click="report()">Report!</button>

@@ -176,6 +176,12 @@
     <Content Include="Content\font-awesome-4.5.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.5.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Styles\haikuDetails.css">
+      <DependentUpon>haikuDetails.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikuDetails.min.css">
+      <DependentUpon>haikuDetails.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\haikuEdit.css">
       <DependentUpon>haikuEdit.less</DependentUpon>
     </Content>
@@ -234,6 +240,7 @@
     <Content Include="Scripts\app\controllers\haiku-edit-controller.js" />
     <Content Include="Scripts\app\controllers\haiku-write-controller.js" />
     <Content Include="Scripts\app\controllers\haikus-controller.js" />
+    <Content Include="Scripts\app\controllers\rate-controller.js" />
     <Content Include="Scripts\app\controllers\report-controller.js" />
     <Content Include="Scripts\app\controllers\side-bar-controller.js" />
     <Content Include="Scripts\app\controllers\user-controller.js" />
@@ -253,6 +260,7 @@
     <Content Include="Scripts\app\views\partials\authorizeForm.html" />
     <Content Include="Scripts\app\views\haikuEdit.html" />
     <Content Include="Scripts\app\views\partials\haikuSmall.html" />
+    <Content Include="Scripts\app\views\partials\rateForm.html" />
     <Content Include="Scripts\app\views\partials\reportForm.html" />
     <Content Include="Scripts\app\views\user.html" />
     <Content Include="Scripts\app\views\userRegister.html" />
@@ -373,6 +381,7 @@
     <Content Include="Content\Styles\haikuEdit.less" />
     <Content Include="Content\Styles\haikuWrite.less" />
     <Content Include="Content\Styles\userRegister.less" />
+    <Content Include="Content\Styles\haikuDetails.less" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

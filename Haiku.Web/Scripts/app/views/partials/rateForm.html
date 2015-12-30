@@ -1,0 +1,15 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Rate</h3>
+</div>
+<div class="modal-body" style="margin-left: 50px;">
+    <div class="text-warning" style="font-size: 20px;">
+        <div>
+            My rating:
+            {{ rating }}
+        </div>
+        <uib-rating ng-model="rating" max="5"></uib-rating>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

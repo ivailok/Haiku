@@ -26,5 +26,9 @@
   {
     "outputFile": "Content/Styles/userRegister.css",
     "inputFile": "Content/Styles/userRegister.less"
+  },
+  {
+    "outputFile": "Content/Styles/haikuDetails.css",
+    "inputFile": "Content/Styles/haikuDetails.less"
   }
 ]

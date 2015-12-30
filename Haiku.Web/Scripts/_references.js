@@ -11,6 +11,7 @@
 /// <reference path="app/controllers/haiku-edit-controller.js" />
 /// <reference path="app/controllers/haikus-controller.js" />
 /// <reference path="app/controllers/haiku-write-controller.js" />
+/// <reference path="app/controllers/rate-controller.js" />
 /// <reference path="app/controllers/report-controller.js" />
 /// <reference path="app/controllers/side-bar-controller.js" />
 /// <reference path="app/controllers/user-controller.js" />
