@@ -17,8 +17,8 @@
                 $scope.responseMessage = 'Successfully published!';
             }, function (httpResponse) {
                 $scope.receivedResponse = true;
-                $scope.responseMessage = httpResponse.data.message;
                 $scope.responseType = 'danger';
+                $scope.responseMessage = httpResponse.data.message;
             });
     };
 

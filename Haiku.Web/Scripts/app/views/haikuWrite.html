@@ -3,9 +3,11 @@
         <form novalidate class="form-group">
             <label for="text">Hi, enter your haiku:</label>
             <textarea id="text" class="form-control form-control-static" ng-model="text" ng-minlength="10" custom-autofocus auto-height required></textarea>
+            <p class="validation-requirement">Minimum 10 symbols.</p>
 
             <label for="nickname">Nickname:</label>
             <input id="nickname" class="form-control" type="text" ng-model="nickname" ng-minlength="4" ng-maxlength="20" required />
+            <p class="validation-requirement">min: 4, max: 20</p>
 
             <label for="publishCode">Secret token:</label>
             <input id="publishCode" class="form-control" type="password" ng-model="publishCode" required />

@@ -22,5 +22,9 @@
   {
     "outputFile": "Content/Styles/haikuWrite.css",
     "inputFile": "Content/Styles/haikuWrite.less"
+  },
+  {
+    "outputFile": "Content/Styles/userRegister.css",
+    "inputFile": "Content/Styles/userRegister.less"
   }
 ]

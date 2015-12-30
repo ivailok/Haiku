@@ -18,7 +18,10 @@
   max-width: inherit;
   height: 200px;
 }
-.haiku-write-view .form-horizontal .form-group .form-control {
+.haiku-write-view .form-horizontal .form-group .form-control + .form-control {
+  margin-top: 30px;
+}
+.haiku-write-view .form-horizontal .form-group .form-control + .validation-requirement {
   margin-bottom: 30px;
 }
 .haiku-write-view .form-horizontal .form-group input.ng-invalid,
@@ -28,4 +31,8 @@
 .haiku-write-view .form-horizontal .form-group input.ng-valid,
 .haiku-write-view .form-horizontal .form-group textarea.ng-valid {
   background-color: #78FA89;
+}
+.haiku-write-view .form-horizontal .form-group .validation-requirement {
+  font-size: 10px;
+  font-style: oblique;
 }

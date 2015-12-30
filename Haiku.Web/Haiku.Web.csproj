@@ -206,6 +206,12 @@
     <Content Include="Content\Styles\user.min.css">
       <DependentUpon>user.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\userRegister.css">
+      <DependentUpon>userRegister.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\userRegister.min.css">
+      <DependentUpon>userRegister.css</DependentUpon>
+    </Content>
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -366,6 +372,7 @@
     <Content Include="Content\Styles\user.less" />
     <Content Include="Content\Styles\haikuEdit.less" />
     <Content Include="Content\Styles\haikuWrite.less" />
+    <Content Include="Content\Styles\userRegister.less" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

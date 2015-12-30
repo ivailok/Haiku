@@ -1,6 +1,8 @@
 ﻿app.controller("UserRegisterController", ['$scope', 'UsersService', function ($scope, usersService) {
 
-    $scope.isRegistered = false;
+    $scope.receivedResponse = false;
+    $scope.responseType = '';
+    $scope.responseMessage = '';
 
     $scope.register = function () {
         var hash = CryptoJS.SHA3($scope.publishCode, { outputLength: 512 });
@@ -11,10 +13,14 @@
         };
 
         usersService.registerAuthor(data)
-            .then(function (data) {
-                $scope.isRegistered = true;
-            }, function (error) {
-                console.log(error);
+            .then(function (httpResponse) {
+                $scope.receivedResponse = true;
+                $scope.responseType = 'success';
+                $scope.responseMessage = 'Successfully registered!';
+            }, function (httpResponse) {
+                $scope.receivedResponse = true;
+                $scope.responseType = 'danger';
+                $scope.responseMessage = httpResponse.data.message;
             });
     };
 }]);

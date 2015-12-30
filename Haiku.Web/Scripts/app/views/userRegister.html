@@ -1,13 +1,17 @@
-﻿<div ng-hide="isRegistered">
-    <label for="nickname">Nickname:</label>
-    <input id="nickname" type="text" ng-model="nickname" />
+﻿<div class="user-register-view">
+    <div class="form-horizontal" ng-hide="responseType === 'success'">
+        <form class="form-group">
+            <label for="nickname">Nickname:</label>
+            <input id="nickname" class="form-control" type="text" ng-model="nickname" required ng-minlength="4" ng-maxlength="20" />
+            <p class="validation-requirement">min: 4, max: 20</p>
 
-    <label for="publishCode">Publish code:</label>
-    <input id="publishCode" type="password" ng-model="publishCode" />
-
-    <button ng-click="register()">Register</button>
-</div>
-
-<div ng-show="isRegistered">
-    You are now an author! Use this power carefully.
+            <label for="publishCode">Secret token:</label>
+            <input id="publishCode" class="form-control" type="password" ng-model="publishCode" required />
+            
+            <input class="btn btn-primary" type="submit" value="Register" ng-click="register()" />
+        </form>
+    </div>
+    <div ng-show="receivedResponse">
+        <uib-alert type="{{ responseType }}">{{ responseMessage }}</uib-alert>
+    </div>
 </div>

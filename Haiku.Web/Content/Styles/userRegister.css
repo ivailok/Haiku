@@ -1,0 +1,33 @@
+﻿.user-register-view {
+  width: inherit;
+  max-width: inherit;
+  margin-left: 50px;
+}
+.user-register-view .form-horizontal {
+  width: inherit;
+  max-width: inherit;
+  position: relative;
+  left: 35%;
+}
+.user-register-view .form-horizontal .form-group {
+  width: inherit;
+  max-width: inherit;
+}
+.user-register-view .form-horizontal .form-group .form-control + .form-control {
+  margin-top: 30px;
+}
+.user-register-view .form-horizontal .form-group .form-control + .validation-requirement {
+  margin-bottom: 30px;
+}
+.user-register-view .form-horizontal .form-group input.ng-invalid,
+.user-register-view .form-horizontal .form-group textarea.ng-invalid {
+  background-color: #FA787E;
+}
+.user-register-view .form-horizontal .form-group input.ng-valid,
+.user-register-view .form-horizontal .form-group textarea.ng-valid {
+  background-color: #78FA89;
+}
+.user-register-view .form-horizontal .form-group .validation-requirement {
+  font-size: 10px;
+  font-style: oblique;
+}
