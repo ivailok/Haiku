@@ -1,5 +1,7 @@
 ﻿app.controller("HaikuWriteController", ['$scope', '$location', 'HaikusService', function ($scope, $location, haikusService) {
-    $scope.isPublished = false;
+    $scope.receivedResponse = false;
+    $scope.responseType = '';
+    $scope.responseMessage = '';
 
     $scope.publish = function () {
         var data = {
@@ -10,12 +12,20 @@
 
         haikusService.publishHaiku($scope.nickname, hash, data)
             .then(function (httpResponse) {
-                $scope.isPublished = true;
-            })
+                $scope.receivedResponse = true;
+                $scope.responseType = 'success';
+                $scope.responseMessage = 'Successfully published!';
+            }, function (httpResponse) {
+                $scope.receivedResponse = true;
+                $scope.responseMessage = httpResponse.data.message;
+                $scope.responseType = 'danger';
+            });
     };
 
     $scope.writeAnother = function () {
         $scope.text = '';
-        $scope.isPublished = false;
+        $scope.receivedResponse = false;
+        $scope.responseType = '';
+        $scope.responseMessage = '';
     };
 }]);

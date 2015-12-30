@@ -17,6 +17,7 @@
 /// <reference path="app/controllers/user-register-controller.js" />
 /// <reference path="app/controllers/users-controller.js" />
 /// <reference path="app/directives/autoheight.js" />
+/// <reference path="app/directives/customautofocus.js" />
 /// <reference path="app/directives/haikusmallinfo.js" />
 /// <reference path="app/directives/selectpicker.js" />
 /// <reference path="app/routing.js" />

@@ -1,14 +1,21 @@
-﻿<div ng-hide="isPublished">
-    Hi, {{ nickname }}. Enter your haiku:
+﻿<div class="haiku-write-view">
+    <div class="form-horizontal" ng-hide="responseType === 'success'">
+        <form novalidate class="form-group">
+            <label for="text">Hi, enter your haiku:</label>
+            <textarea id="text" class="form-control form-control-static" ng-model="text" ng-minlength="10" custom-autofocus auto-height required></textarea>
 
-    <textarea ng-model="text"></textarea>
+            <label for="nickname">Nickname:</label>
+            <input id="nickname" class="form-control" type="text" ng-model="nickname" ng-minlength="4" ng-maxlength="20" required />
 
-    <label for="publishCode">Secret token:</label>
-    <input id="publishCode" type="password" ng-model="publishCode" />
+            <label for="publishCode">Secret token:</label>
+            <input id="publishCode" class="form-control" type="password" ng-model="publishCode" required />
 
-    <button ng-click="publish()">Publish</button>
-</div>
-<div ng-show="isPublished">
-    Gosho, you have published your haiku.
-    <button ng-click="writeAnother()">Write another one?</button>
+            <input class="btn btn-primary submit" type="submit" value="Publish" ng-click="publish()" />
+        </form>
+    </div>
+
+    <div ng-show="receivedResponse">
+        <uib-alert type="{{ responseType }}">{{ responseMessage }}</uib-alert>
+        <button class="btn btn-primary" ng-click="writeAnother()">Write another one?</button>
+    </div>
 </div>

@@ -34,7 +34,8 @@ namespace Haiku.Web
                 "~/Content/Styles/haikus.css",
                 "~/Content/Styles/haikuSmall.css",
                 "~/Content/Styles/user.css",
-                "~/Content/Styles/haikuEdit.css"));
+                "~/Content/Styles/haikuEdit.css",
+                "~/Content/Styles/haikuWrite.css"));
         }
     }
 }

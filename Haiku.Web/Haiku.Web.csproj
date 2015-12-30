@@ -194,6 +194,12 @@
     <Content Include="Content\Styles\haikuSmall.min.css">
       <DependentUpon>haikuSmall.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\haikuWrite.css">
+      <DependentUpon>haikuWrite.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\haikuWrite.min.css">
+      <DependentUpon>haikuWrite.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\user.css">
       <DependentUpon>user.less</DependentUpon>
     </Content>
@@ -228,6 +234,7 @@
     <Content Include="Scripts\app\controllers\user-register-controller.js" />
     <Content Include="Scripts\app\controllers\users-controller.js" />
     <Content Include="Scripts\app\directives\autoHeight.js" />
+    <Content Include="Scripts\app\directives\customAutofocus.js" />
     <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
     <Content Include="Scripts\app\directives\selectPicker.js" />
     <Content Include="Scripts\app\routing.js" />
@@ -358,6 +365,7 @@
     <Content Include="Content\Styles\haikuSmall.less" />
     <Content Include="Content\Styles\user.less" />
     <Content Include="Content\Styles\haikuEdit.less" />
+    <Content Include="Content\Styles\haikuWrite.less" />
     <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
