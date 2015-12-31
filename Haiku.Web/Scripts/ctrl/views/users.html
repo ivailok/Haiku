@@ -24,6 +24,7 @@
                 <uib-rating style="margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
                 <button class="btn btn-primary" ng-hide="user.vip" ng-click="promote($index)">Promote</button>
                 <button class="btn btn-primary" ng-show="user.vip" ng-click="demote($index)">Demote</button>
+                <button class="btn btn-danger" ng-click="delete($index)">Delete</button>
             </span>
         </span>
 
