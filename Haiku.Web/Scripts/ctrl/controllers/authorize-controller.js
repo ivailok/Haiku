@@ -6,11 +6,9 @@ function ($scope, $location, $uibModalInstance, usersService, invoke, successCal
     $scope.authorize = function () {
         var hash = CryptoJS.SHA3($scope.manageToken, { outputLength: 512 });
 
-        console.log(hash.toString());
-
         invoke(hash.toString())
             .then(function (httpResponse) {
-                successCallback();
+                successCallback(httpResponse.data);
             });
         
         $uibModalInstance.close();

@@ -1,1 +1,13 @@
-﻿Uhuu
+﻿<div class="reports-view" style="width: inherit; max-width: inherit;">
+    <div class="reports-container container-fluid" style="width: inherit; max-width: inherit;">
+        <div class="report-container-item" ng-repeat="report in reports" style="width: inherit; max-width: inherit; margin-bottom: 75px;">
+            <textarea style="width: inherit; max-width: inherit; height: 200px; overflow: hidden; resize: none;" disabled auto-height ng-model="report.reason"></textarea>
+            <span style="float: right;">
+                <button class="btn btn-primary" ng-click="viewHaiku($index)">View haiku</button>
+                <button class="btn btn-danger" ng-click="deleteHaiku($index)">Delete haiku</button>
+            </span>
+        </div>
+    </div>
+
+    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="sendQuery()"></uib-pagination>
+</div>

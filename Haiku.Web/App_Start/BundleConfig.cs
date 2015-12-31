@@ -38,6 +38,25 @@ namespace Haiku.Web
                 "~/Content/Styles/haikuWrite.css",
                 "~/Content/Styles/userRegister.css",
                 "~/Content/Styles/haikuDetails.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-route.js",
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                "~/Scripts/angular-bootstrap-select.js",
+                "~/Scripts/sha3.js",
+
+                "~/Scripts/shared/services/services.js",
+                "~/Scripts/shared/services/http-service.js",
+                "~/Scripts/shared/services/haikus-service.js",
+                "~/Scripts/shared/services/users-service.js",
+                "~/Scripts/shared/services/reports-service.js",
+
+                "~/Scripts/shared/directives/directives.js",
+                "~/Scripts/shared/directives/haikuSmallInfo.js",
+                "~/Scripts/shared/directives/autoHeight.js",
+                "~/Scripts/shared/directives/selectPicker.js",
+                "~/Scripts/shared/directives/customAutofocus.js"));
         }
     }
 }

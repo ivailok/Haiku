@@ -41,5 +41,6 @@
 /// <reference path="shared/directives/selectpicker.js" />
 /// <reference path="shared/services/haikus-service.js" />
 /// <reference path="shared/services/http-service.js" />
+/// <reference path="shared/services/reports-service.js" />
 /// <reference path="shared/services/services.js" />
 /// <reference path="shared/services/users-service.js" />

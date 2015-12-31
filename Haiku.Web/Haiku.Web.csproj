@@ -256,6 +256,7 @@
     <Content Include="Scripts\ctrl\views\partials\authorizeForm.html" />
     <Content Include="Scripts\shared\services\haikus-service.js" />
     <Content Include="Scripts\shared\services\http-service.js" />
+    <Content Include="Scripts\shared\services\reports-service.js" />
     <Content Include="Scripts\shared\services\users-service.js" />
     <Content Include="Scripts\app\views\haikus.html" />
     <Content Include="Scripts\app\views\haikuDetails.html" />

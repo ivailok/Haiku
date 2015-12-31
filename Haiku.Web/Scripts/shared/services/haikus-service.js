@@ -30,6 +30,10 @@
             return httpService.put("users/" + nickname + "/haikus/" + id, { 'PublishCode': publishCode }, data);
         },
 
+        deleteHaikuAdmin: function (id, manageToken) {
+            return httpService.delete("/haikus/" + id, { 'ManageToken': manageToken });
+        },
+
         saveChosenHaiku: function (haiku) {
             self.chosenHaiku = haiku;
         },

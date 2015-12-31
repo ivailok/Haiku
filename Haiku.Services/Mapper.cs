@@ -94,7 +94,8 @@ namespace Haiku.Services
             return new ReportGetDto()
             {
                 Reason = report.Reason,
-                DateSent = report.DateSent
+                DateSent = report.DateSent,
+                HaikuId = report.HaikuId
             };
         }
     }

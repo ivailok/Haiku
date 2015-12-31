@@ -7,22 +7,7 @@
 <div class="container" ng-view></div>
 
 @section scripts {
-    @Scripts.Render("~/Scripts/angular.js")
-    @Scripts.Render("~/Scripts/angular-route.js")
-    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
-    @Scripts.Render("~/Scripts/angular-bootstrap-select.js")
-    @Scripts.Render("~/Scripts/sha3.js")
-
-    @Scripts.Render("~/Scripts/shared/services/services.js")
-    @Scripts.Render("~/Scripts/shared/services/http-service.js")
-    @Scripts.Render("~/Scripts/shared/services/haikus-service.js")
-    @Scripts.Render("~/Scripts/shared/services/users-service.js")
-
-    @Scripts.Render("~/Scripts/shared/directives/directives.js")
-    @Scripts.Render("~/Scripts/shared/directives/haikuSmallInfo.js")
-    @Scripts.Render("~/Scripts/shared/directives/autoHeight.js")
-    @Scripts.Render("~/Scripts/shared/directives/selectPicker.js")
-    @Scripts.Render("~/Scripts/shared/directives/customAutofocus.js")
+    @Scripts.Render("~/bundles/angular")
 
     @Scripts.Render("~/Scripts/app/app.js")
     

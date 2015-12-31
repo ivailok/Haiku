@@ -25,8 +25,8 @@
             return request('Post', resourceUrl, headers, data);
         },
 
-        get: function (resourceUrl) {
-            return request('Get', resourceUrl);
+        get: function (resourceUrl, headers) {
+            return request('Get', resourceUrl, headers);
         },
 
         put: function (resourseUrl, headers, data) {

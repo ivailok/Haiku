@@ -29,9 +29,9 @@
     // initialize
     sendQuery();
 
-    $scope.sendQuery = function () {
-        sendQuery();
-    };
+        $scope.sendQuery = function () {
+            sendQuery();
+        };
 
     $scope.promote = function (index) {
         $uibModal.open({
@@ -90,12 +90,12 @@
         }
     };
 
-    function onChangeUserRole() {
+    function onChangeUserRole(data) {
         sendQuery();
     };
 
     function onDeleteUser(index) {
-        return function () {
+        return function (data) {
             $scope.users.splice(index, 1);
         }
     };
