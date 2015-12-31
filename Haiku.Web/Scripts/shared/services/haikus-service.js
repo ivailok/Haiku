@@ -1,4 +1,4 @@
-﻿app.factory('HaikusService', ['HttpService', function (httpService) {
+﻿services.factory('HaikusService', ['HttpService', function (httpService) {
     var self = this;
 
     var service = {

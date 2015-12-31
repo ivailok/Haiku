@@ -1,0 +1,15 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Authorization</h3>
+</div>
+<div class="modal-body" style="margin-left: 50px;">
+    <div class="form-horizontal">
+        <form class="form-group">
+            <label for="manageToken">Manage token:</label>
+            <input id="manageToken" class="form-control" type="password" ng-model="manageToken" />
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="authorize()">Confirm</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

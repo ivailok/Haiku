@@ -1,4 +1,4 @@
-﻿app.factory("HttpService", ['$http', function ($http) {
+﻿services.factory("HttpService", ['$http', function ($http) {
     var serverUrl = "http://localhost:2950/api/";
     
     function request (method, url, headers, data)

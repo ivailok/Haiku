@@ -1,1 +1,34 @@
-﻿wazaa
+﻿<div style="max-width: inherit; width: inherit" class="container-fluid">
+    <span>
+        <span>
+            Sort by:
+            <select select-picker data-style="btn-primary" ng-model="selectedSortOption" ng-change="sendQuery()" ng-options="opt.name for opt in sortOptions"></select>
+        </span>
+
+        <span>
+            Order by:
+            <select select-picker data-style="btn-primary" ng-model="selectedOrderOption" ng-change="sendQuery()" ng-options="opt.name for opt in orderOptions"></select>
+        </span>
+    </span>
+
+    <hr />
+
+    <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="user in users">
+        <span>
+            <span>
+                {{ user.nickname }}
+                <span class="text-warning" ng-show="user.vip">VIP</span>
+            </span>
+            <span style="float: right" class="text-warning">
+                {{ user.rating | number : 2 }}
+                <uib-rating style="margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
+                <button class="btn btn-primary" ng-hide="user.vip" ng-click="promote($index)">Promote</button>
+                <button class="btn btn-primary" ng-show="user.vip" ng-click="demote($index)">Demote</button>
+            </span>
+        </span>
+
+        <div style="height: 50px" class="divider"></div>
+    </div>
+
+    <uib-pagination items-per-page="itemsPerPage" boundary-links="true" total-items="lastKnownItems" max-size="visiblePages" ng-model="currentPage" ng-change="sendQuery()"></uib-pagination>
+</div>

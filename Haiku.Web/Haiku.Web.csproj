@@ -251,9 +251,11 @@
     <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
     <Content Include="Scripts\app\directives\selectPicker.js" />
     <Content Include="Scripts\app\routing.js" />
-    <Content Include="Scripts\app\services\haikus-service.js" />
-    <Content Include="Scripts\app\services\http-service.js" />
-    <Content Include="Scripts\app\services\users-service.js" />
+    <Content Include="Scripts\ctrl\controllers\authorize-controller.js" />
+    <Content Include="Scripts\ctrl\views\partials\authorizeForm.html" />
+    <Content Include="Scripts\shared\services\haikus-service.js" />
+    <Content Include="Scripts\shared\services\http-service.js" />
+    <Content Include="Scripts\shared\services\users-service.js" />
     <Content Include="Scripts\app\views\haikus.html" />
     <Content Include="Scripts\app\views\haikuDetails.html" />
     <Content Include="Scripts\app\views\haikuWrite.html" />
@@ -401,6 +403,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sha3.js" />
+    <Content Include="Scripts\shared\services\services.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

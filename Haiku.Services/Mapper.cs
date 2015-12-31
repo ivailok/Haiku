@@ -68,7 +68,8 @@ namespace Haiku.Services
             var dto = new UserGetDto()
             {
                 Nickname = user.Nickname,
-                Rating = user.Rating
+                Rating = user.Rating,
+                Vip = user.Role == UserRole.VIP
             };
             var haikus = new List<HaikuGetDto>();
             foreach (var haiku in user.Haikus)

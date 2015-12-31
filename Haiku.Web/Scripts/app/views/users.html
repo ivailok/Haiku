@@ -16,6 +16,7 @@
     <div style="max-width: inherit; width: inherit" class="container-fluid" ng-repeat="user in users">
         <span>
             <a ng-click="selectUser($index)">{{ user.nickname }}</a>
+            <span class="text-warning" ng-show="user.vip">VIP</span>
             <span style="float: right" class="text-warning">
                 {{ user.rating | number : 2 }}
                 <uib-rating style="float: right; margin-left: 20px;" ng-model="user.rating" max="5" readonly="true"></uib-rating>
