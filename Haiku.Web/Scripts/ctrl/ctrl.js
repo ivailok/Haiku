@@ -1,1 +1,1 @@
-﻿var ctrl = angular.module('HaikuControlPanel', ['ngRoute', 'ui.bootstrap', 'Services']);
+﻿var ctrl = angular.module('HaikuControlPanel', ['ngRoute', 'ui.bootstrap', 'Services', 'Directives']);

@@ -246,10 +246,11 @@
     <Content Include="Scripts\app\controllers\user-controller.js" />
     <Content Include="Scripts\app\controllers\user-register-controller.js" />
     <Content Include="Scripts\app\controllers\users-controller.js" />
-    <Content Include="Scripts\app\directives\autoHeight.js" />
-    <Content Include="Scripts\app\directives\customAutofocus.js" />
-    <Content Include="Scripts\app\directives\haikuSmallInfo.js" />
-    <Content Include="Scripts\app\directives\selectPicker.js" />
+    <Content Include="Scripts\shared\directives\autoHeight.js" />
+    <Content Include="Scripts\shared\directives\customAutofocus.js" />
+    <Content Include="Scripts\shared\directives\directives.js" />
+    <Content Include="Scripts\shared\directives\haikuSmallInfo.js" />
+    <Content Include="Scripts\shared\directives\selectPicker.js" />
     <Content Include="Scripts\app\routing.js" />
     <Content Include="Scripts\ctrl\controllers\authorize-controller.js" />
     <Content Include="Scripts\ctrl\views\partials\authorizeForm.html" />

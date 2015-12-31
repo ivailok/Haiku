@@ -1,4 +1,4 @@
-﻿app.directive("haikuSmallInfo", function () {
+﻿directives.directive("haikuSmallInfo", function () {
     var controller = ['$scope', '$location', '$uibModal', 'HaikusService', 'UsersService', function ($scope, $location, $uibModal, haikusService, usersService) {
         $scope.selectUser = function (nickname) {
             usersService.saveChosenUser(undefined);

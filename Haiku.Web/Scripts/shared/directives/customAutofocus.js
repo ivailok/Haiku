@@ -1,4 +1,4 @@
-﻿app.directive('customAutofocus', [function () {
+﻿directives.directive('customAutofocus', [function () {
     return {
         restrict: 'A',
         link: function (scope, element) {
