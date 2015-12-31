@@ -1,7 +1,7 @@
 ﻿app.controller("ReportController", ['$scope', '$uibModalInstance', 'HaikusService', 'id', function ($scope, $uibModalInstance, haikusService, id) {
     $scope.text = '';
 
-    $scope.send = function () {
+    $scope.report = function () {
         haikusService.sendReport(id, {
             reason: $scope.text
         });

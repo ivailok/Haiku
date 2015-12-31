@@ -1,11 +1,11 @@
-﻿<div class="haiku-details-view">
+﻿<div class="haiku-details-view" ng-if="dataLoaded">
     <div class="first-panel">
         <textarea disabled ng-model="haiku.text" auto-height></textarea>
         <button class="btn btn-danger side-btn" ng-click="report()">Report</button>
         <button class="btn btn-info side-btn" ng-click="rate()">Rate</button>
     </div>
     <span class="second-panel">
-        <a ng-show="showAuthor" ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
+        <a ng-click="selectUser(haiku.author)">{{ haiku.author }}</a>
         <span class="text-warning">
             <span class="rating-stars"><uib-rating ng-model="haiku.rating" max="5" readonly="true"></uib-rating></span>
             <span class="rating-numeric">{{ haiku.rating | number : 2 }}</span>

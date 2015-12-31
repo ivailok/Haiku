@@ -1,12 +1,19 @@
 ﻿/// <reference path="haiku-controller.js" />
 app.controller("HaikuController", ['$scope', '$routeParams', '$location', '$uibModal', 'HaikusService', 'UsersService', function ($scope, $routeParams, $location, $uibModal, haikusService, usersService) {
+    
+    $scope.dataLoaded = false;
+    
     $scope.haiku = haikusService.getChosenHaiku();
 
     if ($scope.haiku === undefined) {
         haikusService.getHaiku($routeParams.id)
             .then(function (httpResponse) {
                 $scope.haiku = httpResponse.data;
+                $scope.dataLoaded = true;
             });
+    }
+    else {
+        $scope.dataLoaded = true;
     }
 
     $scope.selectUser = function (nickname) {
