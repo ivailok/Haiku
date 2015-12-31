@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="HaikuApp">
+<html ng-app="@ViewBag.App">
 <head>
     <base href="@Request.ApplicationPath" />
     <meta charset="utf-8" />
@@ -16,7 +16,7 @@
         </div>
         <div class="phrase">
             <h1>
-                <i>Your thoughts are valued!</i>
+                <i>@ViewBag.HeaderPhrase</i>
             </h1>
         </div>
     </header>

@@ -1,18 +1,23 @@
 ﻿@{
-    Layout = null;
+    ViewBag.App = "HaikuControlPanel";
+    ViewBag.Title = "Haiku Control Panel";
+    ViewBag.HeaderPhrase = "Manage";
 }
 
-<!DOCTYPE html>
+<div class="container" ng-view></div>
 
-<html ng-app="">
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Control Panel</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/Styles")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    This is how we do.
-</body>
-</html>
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/angular-route.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+    @Scripts.Render("~/Scripts/angular-bootstrap-select.js")
+    @Scripts.Render("~/Scripts/sha3.js")
+
+    @Scripts.Render("~/Scripts/ctrl/ctrl.js")
+
+    @Scripts.Render("~/Scripts/ctrl/controllers/side-bar-controller.js")
+    @Scripts.Render("~/Scripts/ctrl/controllers/users-controller.js")
+    @Scripts.Render("~/Scripts/ctrl/controllers/reports-controller.js")
+
+    @Scripts.Render("~/Scripts/ctrl/routing.js")
+}
