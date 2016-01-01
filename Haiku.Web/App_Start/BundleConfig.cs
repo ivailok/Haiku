@@ -30,7 +30,7 @@ namespace Haiku.Web
                       "~/Content/site.css",
                       "~/Content/font-awesome-4.5.0/css/font-awesome.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Styles").Include(
+            bundles.Add(new StyleBundle("~/Content/mycss").Include(
                 "~/Content/Styles/haikus.css",
                 "~/Content/Styles/haikuSmall.css",
                 "~/Content/Styles/user.css",
