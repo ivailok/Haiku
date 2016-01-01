@@ -1,4 +1,4 @@
-namespace Haiku.Data.Migrations
+namespace Haiku.Data.MsSqlMigrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -7,14 +7,12 @@ namespace Haiku.Data.Migrations
     {
         public override void Up()
         {
-            DropIndex("Users", "IX_User_AccessToken");
             AlterColumn("dbo.Users", "AccessToken", c => c.String(nullable: false, maxLength: 128));
-            CreateIndex("Users", "AccessToken", true, "IX_User_AccessToken");
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Users", "AccessToken", c => c.String(nullable: false, maxLength: 512));
+            AlterColumn("dbo.Users", "AccessToken", c => c.String(nullable: false, maxLength: 30));
         }
     }
 }

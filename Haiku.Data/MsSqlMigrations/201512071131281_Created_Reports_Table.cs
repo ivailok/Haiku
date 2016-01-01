@@ -1,4 +1,4 @@
-namespace Haiku.Data.Migrations
+namespace Haiku.Data.MsSqlMigrations
 {
     using System;
     using System.Data.Entity.Migrations;

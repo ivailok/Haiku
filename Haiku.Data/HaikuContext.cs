@@ -1,5 +1,6 @@
 ﻿using Haiku.Data;
 using Haiku.Data.Entities;
+using MySql.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Haiku.Data
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class HaikuContext : DbContext, IDbContext
     {
         public HaikuContext()
@@ -24,6 +26,8 @@ namespace Haiku.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<HaikuEntity>().Property(c => c.Text).HasColumnType("longtext");
+            modelBuilder.Entity<Report>().Property(c => c.Reason).HasColumnType("longtext");
             base.OnModelCreating(modelBuilder);
         }
     }
