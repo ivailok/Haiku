@@ -1,4 +1,6 @@
 ﻿app.controller("UsersController", ['$scope', '$location', 'UsersService', function ($scope, $location, usersService) {
+    $scope.dataLoaded = false;
+
     $scope.users = [];
 
     $scope.sortOptions = [
@@ -38,11 +40,13 @@
         $location.path("/users/" + $scope.users[index].nickname);
     };
 
-    function sendQuery () {
+    function sendQuery() {
+        $scope.dataLoaded = false;
         usersService.getUsers($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
             .then(function (httpResponse) {
                 $scope.lastKnownItems = httpResponse.data.metadata.totalCount;
                 $scope.users = httpResponse.data.results;
+                $scope.dataLoaded = true;
             });
     };
 }]);

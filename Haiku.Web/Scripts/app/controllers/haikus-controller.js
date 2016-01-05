@@ -1,4 +1,6 @@
 ﻿app.controller('HaikusController', ['$scope', 'HaikusService', function ($scope, haikusService) {
+    $scope.dataLoaded = false;
+
     $scope.haikus = [];
 
     $scope.sortOptions = [
@@ -37,11 +39,13 @@
         $scope.haikus.splice(index, 1);
     }
 
-    function sendQuery () {
+    function sendQuery() {
+        $scope.dataLoaded = false;
         haikusService.getHaikus($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
             .then(function (httpResponse) {
                 $scope.lastKnownItems = httpResponse.data.metadata.totalCount;
                 $scope.haikus = httpResponse.data.results;
+                $scope.dataLoaded = true;
             });
     };
 }]);

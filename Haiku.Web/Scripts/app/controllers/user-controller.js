@@ -1,11 +1,17 @@
 ﻿app.controller("UserController", ['$scope', '$routeParams', '$uibModal', 'UsersService', function ($scope, $routeParams, $uibModal, usersService) {
+    $scope.dataLoaded = false;
+
     $scope.user = usersService.getChosenUser();
 
     if ($scope.user == undefined) {
         usersService.getUser($routeParams.nickname)
             .then(function (httpResponse) {
                 $scope.user = httpResponse.data;
+                $scope.dataLoaded = true;
             });
+    }
+    else {
+        $scope.dataLoaded = true;
     }
 
     $scope.onDelete = function () {
