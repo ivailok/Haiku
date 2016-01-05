@@ -8,6 +8,8 @@
             <input id="publishCode" class="form-control" type="password" ng-model="publishCode" />
         </form>
     </div>
+
+    <uib-alert ng-show="unauthorized" type="danger">{{ responseMessage }}</uib-alert>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="authorize()">Confirm</button>
