@@ -66,6 +66,12 @@ namespace Haiku.Services
 
         public async Task RegisterAuthorAsync(AuthorRegisteringDto dto)
         {
+            var alreadyRegistered = await this.unitOfWork.UsersRepository
+                .GetUniqueAsync(u => u.Nickname == dto.Nickname).ConfigureAwait(false);
+            if (alreadyRegistered != null)
+            {
+                throw new DuplicateNicknameException("Nickname is taken.");
+            }
             User user = Mapper.MapAuthorRegisterDtoToUser(dto);
             this.unitOfWork.UsersRepository.Add(user);
             await this.unitOfWork.CommitAsync().ConfigureAwait(false);

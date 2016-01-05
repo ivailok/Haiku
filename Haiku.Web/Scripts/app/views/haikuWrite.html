@@ -18,6 +18,6 @@
 
     <div ng-show="receivedResponse">
         <uib-alert type="{{ responseType }}">{{ responseMessage }}</uib-alert>
-        <button class="btn btn-primary" ng-click="writeAnother()">Write another one?</button>
+        <button class="btn btn-primary" ng-show="responseType === 'success'" ng-click="writeAnother()">Write another one?</button>
     </div>
 </div>

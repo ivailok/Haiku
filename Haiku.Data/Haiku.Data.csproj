@@ -119,6 +119,10 @@
     <Compile Include="MySqlMigrations\201601011631181_Initial.Designer.cs">
       <DependentUpon>201601011631181_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="MySqlMigrations\201601051250400_User_Indexes.cs" />
+    <Compile Include="MySqlMigrations\201601051250400_User_Indexes.Designer.cs">
+      <DependentUpon>201601051250400_User_Indexes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MySqlMigrations\MySqlConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\User.cs" />
@@ -167,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MySqlMigrations\201601011631181_Initial.resx">
       <DependentUpon>201601011631181_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MySqlMigrations\201601051250400_User_Indexes.resx">
+      <DependentUpon>201601051250400_User_Indexes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

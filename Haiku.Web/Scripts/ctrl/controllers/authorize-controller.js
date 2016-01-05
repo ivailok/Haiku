@@ -3,15 +3,20 @@ function ($scope, $location, $uibModalInstance, usersService, invoke, successCal
     
     $scope.manageToken = '';
 
+    $scope.unauthorized = false;
+    $scope.responseMessage = '';
+
     $scope.authorize = function () {
         var hash = CryptoJS.SHA3($scope.manageToken, { outputLength: 512 });
 
         invoke(hash.toString())
             .then(function (httpResponse) {
+                $uibModalInstance.close();
                 successCallback(httpResponse.data);
+            }, function (httpResponse) {
+                $scope.unauthorized = true;
+                $scope.responseMessage = httpResponse.data.message;
             });
-        
-        $uibModalInstance.close();
     };
 
     $scope.cancel = function () {

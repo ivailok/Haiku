@@ -39,7 +39,7 @@ namespace Haiku.Web.Filters
 
             if (!author)
             {
-                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Wrong credentials. Check them again.");
             }
         }
     }

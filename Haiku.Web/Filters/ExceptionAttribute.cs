@@ -20,6 +20,11 @@ namespace Haiku.Web.Filters
                 actionExecutedContext.Response = actionExecutedContext.Request.CreateErrorResponse(
                     HttpStatusCode.BadRequest, actionExecutedContext.Exception.Message);
             }
+            else if (actionExecutedContext.Exception is DuplicateNicknameException)
+            {
+                actionExecutedContext.Response = actionExecutedContext.Request.CreateErrorResponse(
+                    HttpStatusCode.Forbidden, actionExecutedContext.Exception.Message);
+            }
             else
             {
                 // log here
