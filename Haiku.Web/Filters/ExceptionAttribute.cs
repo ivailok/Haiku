@@ -23,7 +23,7 @@ namespace Haiku.Web.Filters
             else if (actionExecutedContext.Exception is DuplicateNicknameException)
             {
                 actionExecutedContext.Response = actionExecutedContext.Request.CreateErrorResponse(
-                    HttpStatusCode.Forbidden, actionExecutedContext.Exception.Message);
+                    HttpStatusCode.Conflict, actionExecutedContext.Exception.Message);
             }
             else
             {
