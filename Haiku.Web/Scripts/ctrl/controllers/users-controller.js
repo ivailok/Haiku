@@ -1,6 +1,4 @@
 ﻿ctrl.controller("UsersController", ['$scope', '$location', '$uibModal', 'UsersService', function ($scope, $location, $uibModal, usersService) {
-    $scope.dataLoaded = false;
-
     $scope.users = [];
 
     $scope.sortOptions = [
@@ -31,9 +29,9 @@
     // initialize
     sendQuery();
 
-    $scope.sendQuery = function () {
-        sendQuery();
-    };
+        $scope.sendQuery = function () {
+            sendQuery();
+        };
 
     $scope.promote = function (index) {
         $uibModal.open({
@@ -103,12 +101,10 @@
     };
 
     function sendQuery() {
-        $scope.dataLoaded = false;
         usersService.getUsers($scope.selectedSortOption.name, $scope.selectedOrderOption.name, ($scope.currentPage - 1) * $scope.itemsPerPage, $scope.itemsPerPage)
             .then(function (httpResponse) {
                 $scope.lastKnownItems = httpResponse.data.metadata.totalCount;
                 $scope.users = httpResponse.data.results;
-                $scope.dataLoaded = true;
             });
     };
 }]);

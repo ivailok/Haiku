@@ -1,6 +1,6 @@
 ﻿services.factory("HttpService", ['$http', function ($http) {
-    //var serverUrl = "http://localhost:2950/api/";
-    var serverUrl = "http://haikupub.azurewebsites.net/api/";
+    var serverUrl = "http://localhost:2950/api/";
+    //var serverUrl = "http://haikupub.azurewebsites.net/api/";
     
     function request (method, url, headers, data)
     {

@@ -1,6 +1,4 @@
 ﻿ctrl.controller("ReportsController", ['$scope', '$window', '$uibModal', 'ReportsService', 'HaikusService', function ($scope, $window, $uibModal, reportsService, haikusService) {
-    $scope.dataLoaded = false;
-    
     $scope.reports = [];
     $scope.itemsPerPage = 20;
     $scope.currentPage = 1;
@@ -15,11 +13,9 @@
 
     function onGetReports (data) {
         $scope.reports = data;
-        $scope.dataLoaded = true;
     }
 
     function sendQuery() {
-        $scope.dataLoaded = false;
         $uibModal.open({
             templateUrl: '/Scripts/ctrl/views/partials/authorizeForm.html',
             controller: 'AuthorizeController',
